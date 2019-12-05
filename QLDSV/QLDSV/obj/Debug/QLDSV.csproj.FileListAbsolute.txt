@@ -53,3 +53,5 @@ E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\ob
 E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\obj\Debug\QLDSV.csproj.CopyComplete
 E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\obj\Debug\QLDSV.exe
 E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\obj\Debug\QLDSV.pdb
+E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\obj\Debug\QLDSV.frmSinhVien.resources
+E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\obj\Debug\QLDSV.frmLop.resources

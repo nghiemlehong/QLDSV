@@ -79,6 +79,7 @@
             // 
             this.cmbBoPhan.DataSource = this.bdsDSPM;
             this.cmbBoPhan.DisplayMember = "TENCN";
+            this.cmbBoPhan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBoPhan.FormattingEnabled = true;
             this.cmbBoPhan.Location = new System.Drawing.Point(133, 53);
             this.cmbBoPhan.Name = "cmbBoPhan";
