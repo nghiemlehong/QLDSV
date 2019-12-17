@@ -72,6 +72,7 @@ namespace QLDSV
             }
             Program.mHoten = Program.myReader.GetString(1);
             Program.mGroup = Program.myReader.GetString(2);
+            
             Program.myReader.Close();
             Program.conn.Close();
 

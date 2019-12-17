@@ -47,7 +47,7 @@ namespace QLDSV
             if (frm != null) frm.Activate();
             else
             {
-                frmSinhVien  f = new frmSinhVien();
+                frmSinhVien f = new frmSinhVien();
                 f.MdiParent = this;
                 f.Show();
             }

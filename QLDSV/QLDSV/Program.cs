@@ -25,7 +25,7 @@ namespace QLDSV
         public static String password = "";
 
         public static String database = "QLDSV";
-        public static String remotelogin = "SUPPORT_CONECT";
+        public static String remotelogin = "HTKN";
         public static String remotepassword = "123456";
         public static String mloginDN = "";
         public static String passwordDN = "";

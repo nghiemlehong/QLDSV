@@ -32,5 +32,16 @@ namespace QLDSV.Properties {
                 return ((string)(this["QLDSVConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-47HREL4\\MSSQLSERVER1;Initial Catalog=QLDSV;User ID=SON;Passwo" +
+            "rd=123456")]
+        public string QLDSVConnectionString1 {
+            get {
+                return ((string)(this["QLDSVConnectionString1"]));
+            }
+        }
     }
 }
