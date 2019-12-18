@@ -223,7 +223,7 @@ namespace QLDSV
                 //bar2.Visible = false;
             }
             else cmbBoPhan.Enabled = false;
-            btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnChuyenLop.Enabled = true;
+           btnLuuSQL.Enabled = btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnChuyenLop.Enabled = true;
 
 
         }

@@ -93,4 +93,4 @@ E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\bi
 E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\bin\Debug\ja\DevExpress.Office.v19.1.Core.resources.dll
 E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\bin\Debug\ru\DevExpress.Office.v19.1.Core.resources.dll
 E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\obj\Debug\QLDSV.frmMonHoc.resources
-E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\obj\Debug\QLDSV.NhapDiem.resources
+E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\obj\Debug\QLDSV.frmNhapDiem.resources

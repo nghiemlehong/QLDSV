@@ -85,7 +85,14 @@ namespace QLDSV
 
         private void btnNhapDiem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            Form frm = this.CheckExists(typeof(frmNhapDiem));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmNhapDiem f = new frmNhapDiem();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
     }
 }

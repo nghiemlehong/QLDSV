@@ -256,9 +256,10 @@ namespace QLDSV
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+
             kiemTraThayDoi = true;
             String malop = "";
-            
+            viTri = bdsLop.Position;
             if (bdsSinhVien.Count > 0)
             {
                 MessageBox.Show("Không thể xóa lớp này vì Lớp đã có sinh viên.", "", MessageBoxButtons.OK);
@@ -299,6 +300,7 @@ namespace QLDSV
 
         private void btnLuuSQL_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            bdsLop.Position = viTri;
             try
             {
 
@@ -312,6 +314,18 @@ namespace QLDSV
                 MessageBox.Show("Lỗi ghi lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
                 return;
             }
+        }
+
+        private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+        //    btnAdd.Enabled = btnDelete.Enabled = khoGridControl.Enabled = true;
+        //    btnRefresh.Enabled = btnEdit.Enabled = true;
+         //   btnUndo.Enabled = gbInfor.Enabled = btnSave.Enabled = false;
+          //  Program.flagCloseFormKho = true; //Undo lại thì cho phép thoát mà ko kiểm tra dữ liệu
+            bdsLop.CancelEdit();
+            bdsLop.Position = viTri;
+            this.lOPTableAdapter.Fill(this.dS.LOP);
+            this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
         }
     }
 }
