@@ -133,7 +133,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(43, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
+            this.label1.Size = new System.Drawing.Size(86, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Tên đăng nhập :";
             // 
@@ -142,14 +142,14 @@
             this.txtMatKhau.Location = new System.Drawing.Point(133, 120);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '*';
-            this.txtMatKhau.Size = new System.Drawing.Size(261, 20);
+            this.txtMatKhau.Size = new System.Drawing.Size(261, 21);
             this.txtMatKhau.TabIndex = 3;
             // 
             // txtTenDangNhap
             // 
             this.txtTenDangNhap.Location = new System.Drawing.Point(133, 87);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
-            this.txtTenDangNhap.Size = new System.Drawing.Size(261, 20);
+            this.txtTenDangNhap.Size = new System.Drawing.Size(261, 21);
             this.txtTenDangNhap.TabIndex = 2;
             // 
             // v_DS_PHANMANHTableAdapter
@@ -164,6 +164,7 @@
             // 
             // frmDangNhap
             // 
+            this.AcceptButton = this.btnDangNhap;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 250);

@@ -40,6 +40,7 @@
             System.Windows.Forms.Label dIACHILabel;
             System.Windows.Forms.Label gHICHULabel;
             System.Windows.Forms.Label nGHIHOCLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSinhVien));
             this.bdsToanSV = new System.Windows.Forms.BindingSource(this.components);
             this.dS = new QLDSV.DS();
             this.qLDSVDataSet = new QLDSV.QLDSVDataSet();
@@ -50,6 +51,7 @@
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
             this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
             this.btnSua = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLuuSQL = new DevExpress.XtraBars.BarButtonItem();
             this.btnPhucHoi = new DevExpress.XtraBars.BarButtonItem();
             this.btnChuyenLop = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
@@ -148,7 +150,7 @@
             mASVLabel.AutoSize = true;
             mASVLabel.Location = new System.Drawing.Point(12, 22);
             mASVLabel.Name = "mASVLabel";
-            mASVLabel.Size = new System.Drawing.Size(86, 13);
+            mASVLabel.Size = new System.Drawing.Size(82, 13);
             mASVLabel.TabIndex = 0;
             mASVLabel.Text = "MÃ SINH VIÊN :";
             // 
@@ -166,7 +168,7 @@
             tENLabel.AutoSize = true;
             tENLabel.Location = new System.Drawing.Point(221, 59);
             tENLabel.Name = "tENLabel";
-            tENLabel.Size = new System.Drawing.Size(35, 13);
+            tENLabel.Size = new System.Drawing.Size(33, 13);
             tENLabel.TabIndex = 4;
             tENLabel.Text = "TÊN :";
             // 
@@ -175,7 +177,7 @@
             mALOPLabel.AutoSize = true;
             mALOPLabel.Location = new System.Drawing.Point(45, 96);
             mALOPLabel.Name = "mALOPLabel";
-            mALOPLabel.Size = new System.Drawing.Size(53, 13);
+            mALOPLabel.Size = new System.Drawing.Size(51, 13);
             mALOPLabel.TabIndex = 6;
             mALOPLabel.Text = "MÃ LỚP :";
             // 
@@ -193,7 +195,7 @@
             nGAYSINHLabel.AutoSize = true;
             nGAYSINHLabel.Location = new System.Drawing.Point(216, 129);
             nGAYSINHLabel.Name = "nGAYSINHLabel";
-            nGAYSINHLabel.Size = new System.Drawing.Size(72, 13);
+            nGAYSINHLabel.Size = new System.Drawing.Size(68, 13);
             nGAYSINHLabel.TabIndex = 10;
             nGAYSINHLabel.Text = "NGÀY SINH :";
             // 
@@ -202,7 +204,7 @@
             nOISINHLabel.AutoSize = true;
             nOISINHLabel.Location = new System.Drawing.Point(37, 133);
             nOISINHLabel.Name = "nOISINHLabel";
-            nOISINHLabel.Size = new System.Drawing.Size(61, 13);
+            nOISINHLabel.Size = new System.Drawing.Size(60, 13);
             nOISINHLabel.TabIndex = 12;
             nOISINHLabel.Text = "NƠI SINH :";
             // 
@@ -211,7 +213,7 @@
             dIACHILabel.AutoSize = true;
             dIACHILabel.Location = new System.Drawing.Point(46, 170);
             dIACHILabel.Name = "dIACHILabel";
-            dIACHILabel.Size = new System.Drawing.Size(52, 13);
+            dIACHILabel.Size = new System.Drawing.Size(54, 13);
             dIACHILabel.TabIndex = 14;
             dIACHILabel.Text = "ĐỊA CHỈ :";
             // 
@@ -220,7 +222,7 @@
             gHICHULabel.AutoSize = true;
             gHICHULabel.Location = new System.Drawing.Point(46, 210);
             gHICHULabel.Name = "gHICHULabel";
-            gHICHULabel.Size = new System.Drawing.Size(58, 13);
+            gHICHULabel.Size = new System.Drawing.Size(56, 13);
             gHICHULabel.TabIndex = 16;
             gHICHULabel.Text = "GHI CHÚ :";
             // 
@@ -229,7 +231,7 @@
             nGHIHOCLabel.AutoSize = true;
             nGHIHOCLabel.Location = new System.Drawing.Point(222, 211);
             nGHIHOCLabel.Name = "nGHIHOCLabel";
-            nGHIHOCLabel.Size = new System.Drawing.Size(66, 13);
+            nGHIHOCLabel.Size = new System.Drawing.Size(64, 13);
             nGHIHOCLabel.TabIndex = 18;
             nGHIHOCLabel.Text = "NGHỈ HỌC :";
             // 
@@ -273,9 +275,10 @@
             this.btnSua,
             this.btnGhi,
             this.btnPhucHoi,
-            this.btnChuyenLop});
+            this.btnChuyenLop,
+            this.btnLuuSQL});
             this.barManager2.MainMenu = this.barSinhVien;
-            this.barManager2.MaxItemId = 6;
+            this.barManager2.MaxItemId = 7;
             // 
             // barSinhVien
             // 
@@ -285,11 +288,12 @@
             this.barSinhVien.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.barSinhVien.FloatLocation = new System.Drawing.Point(87, 120);
             this.barSinhVien.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnThem),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnXoa),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnSua),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnPhucHoi),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnChuyenLop)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnXoa, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnSua, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLuuSQL, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPhucHoi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnChuyenLop, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.barSinhVien.OptionsBar.MultiLine = true;
             this.barSinhVien.OptionsBar.UseWholeRow = true;
             this.barSinhVien.Text = "Main menu";
@@ -298,6 +302,8 @@
             // 
             this.btnThem.Caption = "Thêm";
             this.btnThem.Id = 0;
+            this.btnThem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.ImageOptions.Image")));
+            this.btnThem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThem.ImageOptions.LargeImage")));
             this.btnThem.Name = "btnThem";
             this.btnThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_ItemClick);
             // 
@@ -305,6 +311,8 @@
             // 
             this.btnXoa.Caption = "Xóa";
             this.btnXoa.Id = 1;
+            this.btnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.Image")));
+            this.btnXoa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.LargeImage")));
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoa_ItemClick);
             // 
@@ -312,19 +320,34 @@
             // 
             this.btnSua.Caption = "Sửa";
             this.btnSua.Id = 2;
+            this.btnSua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.ImageOptions.Image")));
+            this.btnSua.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSua.ImageOptions.LargeImage")));
             this.btnSua.Name = "btnSua";
             this.btnSua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSua_ItemClick);
+            // 
+            // btnLuuSQL
+            // 
+            this.btnLuuSQL.Caption = "Lưu SQL";
+            this.btnLuuSQL.Id = 6;
+            this.btnLuuSQL.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnLuuSQL.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnLuuSQL.Name = "btnLuuSQL";
+            this.btnLuuSQL.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // btnPhucHoi
             // 
             this.btnPhucHoi.Caption = "Phục hồi";
             this.btnPhucHoi.Id = 4;
+            this.btnPhucHoi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPhucHoi.ImageOptions.Image")));
+            this.btnPhucHoi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPhucHoi.ImageOptions.LargeImage")));
             this.btnPhucHoi.Name = "btnPhucHoi";
             // 
             // btnChuyenLop
             // 
             this.btnChuyenLop.Caption = "Chuyển lớp";
             this.btnChuyenLop.Id = 5;
+            this.btnChuyenLop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChuyenLop.ImageOptions.Image")));
+            this.btnChuyenLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnChuyenLop.ImageOptions.LargeImage")));
             this.btnChuyenLop.Name = "btnChuyenLop";
             // 
             // barDockControl1
@@ -333,7 +356,7 @@
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.barManager2;
-            this.barDockControl1.Size = new System.Drawing.Size(1010, 22);
+            this.barDockControl1.Size = new System.Drawing.Size(1010, 28);
             // 
             // barDockControl2
             // 
@@ -347,17 +370,17 @@
             // 
             this.barDockControl3.CausesValidation = false;
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControl3.Location = new System.Drawing.Point(0, 22);
+            this.barDockControl3.Location = new System.Drawing.Point(0, 28);
             this.barDockControl3.Manager = this.barManager2;
-            this.barDockControl3.Size = new System.Drawing.Size(0, 571);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 565);
             // 
             // barDockControl4
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(1010, 22);
+            this.barDockControl4.Location = new System.Drawing.Point(1010, 28);
             this.barDockControl4.Manager = this.barManager2;
-            this.barDockControl4.Size = new System.Drawing.Size(0, 571);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 565);
             // 
             // btnGhi
             // 
@@ -410,7 +433,7 @@
             this.panel1.Controls.Add(tENCNLabel);
             this.panel1.Controls.Add(this.cmbBoPhan);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 22);
+            this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1010, 55);
             this.panel1.TabIndex = 0;
@@ -423,6 +446,7 @@
             this.colMAKH});
             this.gridView3.GridControl = this.gcLop;
             this.gridView3.Name = "gridView3";
+            this.gridView3.OptionsBehavior.ReadOnly = true;
             // 
             // colMALOP
             // 
@@ -452,11 +476,11 @@
             // 
             this.gcLop.DataSource = this.bdsLop;
             this.gcLop.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gcLop.Location = new System.Drawing.Point(710, 77);
+            this.gcLop.Location = new System.Drawing.Point(710, 83);
             this.gcLop.MainView = this.gridView3;
             this.gcLop.MenuManager = this.barManager2;
             this.gcLop.Name = "gcLop";
-            this.gcLop.Size = new System.Drawing.Size(300, 516);
+            this.gcLop.Size = new System.Drawing.Size(300, 510);
             this.gcLop.TabIndex = 13;
             this.gcLop.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -476,6 +500,7 @@
             this.colNGHIHOC});
             this.gridView4.GridControl = this.gcSinhVien;
             this.gridView4.Name = "gridView4";
+            this.gridView4.OptionsBehavior.ReadOnly = true;
             // 
             // colMASV
             // 
@@ -595,9 +620,9 @@
             this.gbSinhVien.Controls.Add(mASVLabel);
             this.gbSinhVien.Controls.Add(this.txtMaSinhVien);
             this.gbSinhVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbSinhVien.Location = new System.Drawing.Point(0, 77);
+            this.gbSinhVien.Location = new System.Drawing.Point(0, 83);
             this.gbSinhVien.Name = "gbSinhVien";
-            this.gbSinhVien.Size = new System.Drawing.Size(710, 299);
+            this.gbSinhVien.Size = new System.Drawing.Size(710, 293);
             this.gbSinhVien.TabIndex = 18;
             this.gbSinhVien.TabStop = false;
             this.gbSinhVien.Text = "Nhập liệu";
@@ -608,7 +633,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 21;
-            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -618,7 +643,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 20;
-            this.btnSave.Text = "SAVE";
+            this.btnSave.Text = "Cập nhật";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -629,7 +654,7 @@
             this.chkNghiHoc.MenuManager = this.barManager2;
             this.chkNghiHoc.Name = "chkNghiHoc";
             this.chkNghiHoc.Properties.Caption = "Đã nghỉ học";
-            this.chkNghiHoc.Size = new System.Drawing.Size(75, 19);
+            this.chkNghiHoc.Size = new System.Drawing.Size(75, 20);
             this.chkNghiHoc.TabIndex = 19;
             // 
             // txtGhiChu
@@ -680,7 +705,7 @@
             this.chkPhai.MenuManager = this.barManager2;
             this.chkPhai.Name = "chkPhai";
             this.chkPhai.Properties.Caption = "Nam";
-            this.chkPhai.Size = new System.Drawing.Size(75, 19);
+            this.chkPhai.Size = new System.Drawing.Size(75, 20);
             this.chkPhai.TabIndex = 9;
             // 
             // txtMaLop
@@ -831,5 +856,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.BindingSource bdsDiem;
         private DSTableAdapters.DIEMTableAdapter dIEMTableAdapter;
+        private DevExpress.XtraBars.BarButtonItem btnLuuSQL;
     }
 }

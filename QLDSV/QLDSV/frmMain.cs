@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace QLDSV
 {
-    public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class frmMain : DevExpress.XtraEditors.XtraForm
     {
         Boolean dangXuat = false;
         public frmMain()
@@ -64,6 +64,28 @@ namespace QLDSV
                 f.MdiParent = this;
                 f.Show();
             }
+        }
+
+        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void btnMon_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmMonHoc));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmMonHoc f = new frmMonHoc();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnNhapDiem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
     }
 }

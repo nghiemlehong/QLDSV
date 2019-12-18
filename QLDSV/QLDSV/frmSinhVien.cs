@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace QLDSV
 {
-    public partial class frmSinhVien : Form
+    public partial class frmSinhVien : DevExpress.XtraEditors.XtraForm
     {
         int viTri = 0;
         String maKhoa = "";
         Boolean checkAdd = false;
+        Boolean kiemTraThayDoi = false;
         public frmSinhVien()
         {
             InitializeComponent();
@@ -70,6 +71,22 @@ namespace QLDSV
                     Program.servername = cmbBoPhan.SelectedValue.ToString();
                     if (cmbBoPhan.SelectedIndex != Program.mBoPhan)
                     {
+                        if (kiemTraThayDoi == true)
+                            if (MessageBox.Show("Bạn có muốn lưu lại vào cơ sở dữ liệu không?", "Xác nhận.", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                            {
+                                try
+                                {
+                                    //bdsLop.ResetCurrentItem();
+                                    this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
+                                    this.lOPTableAdapter.Update(this.dS.LOP);
+                                    MessageBox.Show("Lưu dữ liệu thành công!", "", MessageBoxButtons.OK);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Lỗi ghi lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
+                                    return;
+                                }
+                            }
                         Program.mlogin = Program.remotelogin;
                         Program.password = Program.remotepassword;
                     }
@@ -90,6 +107,7 @@ namespace QLDSV
                         Program.mBoPhan = cmbBoPhan.SelectedIndex;
 
                     }
+                    kiemTraThayDoi = false;
                 }
             }
         }
@@ -108,10 +126,11 @@ namespace QLDSV
             chkNghiHoc.Enabled = false;
             gcSinhVien.Enabled = gcLop.Enabled = false;
             cmbBoPhan.Enabled = false;
-            btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnChuyenLop.Enabled = false;
+            btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLuuSQL.Enabled= btnPhucHoi.Enabled = btnChuyenLop.Enabled = false;
             //grctrlLop.Enabled = grctrlSV.Enabled = false;
             //checkGhi = false;
             checkAdd = true;
+            kiemTraThayDoi = true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -195,18 +214,7 @@ namespace QLDSV
 
             }
             Program.myReader.Close();
-            try
-            {
-                bdsSinhVien.EndEdit();
-                this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.sINHVIENTableAdapter.Update(this.dS.SINHVIEN);
-                MessageBox.Show("Lưu dữ liệu thành công!", "", MessageBoxButtons.OK);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi ghi sinh viên.\n" + ex.Message, "", MessageBoxButtons.OK);
-                return;
-            }
+            bdsSinhVien.EndEdit();
             gbSinhVien.Enabled = false;
             gcSinhVien.Enabled = gcLop.Enabled = true;
             if (Program.mGroup == "PGV")
@@ -240,7 +248,7 @@ namespace QLDSV
                 //bar2.Visible = false;
             }
             else cmbBoPhan.Enabled = false;
-            btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnChuyenLop.Enabled = true;
+           btnLuuSQL.Enabled = btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnChuyenLop.Enabled = true;
 
         }
 
@@ -265,9 +273,7 @@ namespace QLDSV
                     masv = (((DataRowView)bdsSinhVien[bdsSinhVien.Position])["MASV"].ToString());
                     chkNghiHoc.Checked = true;
                     bdsSinhVien.EndEdit();
-                    //bdsSV.ResetCurrentItem();
-                    this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.sINHVIENTableAdapter.Update(this.dS.SINHVIEN);
+                
 
                 }
                 catch (Exception ex)
@@ -278,6 +284,7 @@ namespace QLDSV
                     return;
                 }
             }
+            kiemTraThayDoi = true;
 
 
         }
@@ -294,10 +301,26 @@ namespace QLDSV
             chkNghiHoc.Enabled = false;
             gcSinhVien.Enabled = gcLop.Enabled = false;
             cmbBoPhan.Enabled = false;
-            btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnChuyenLop.Enabled = false;
+            btnLuuSQL.Enabled = btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnChuyenLop.Enabled = false;
             //grctrlLop.Enabled = grctrlSV.Enabled = false;
             //checkGhi = false;
+            kiemTraThayDoi = true;
            
+        }
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {              
+                this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.sINHVIENTableAdapter.Update(this.dS.SINHVIEN);
+                MessageBox.Show("Lưu dữ liệu thành công!", "", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi ghi sinh viên.\n" + ex.Message, "", MessageBoxButtons.OK);
+                return;
+            }
         }
     }
 }

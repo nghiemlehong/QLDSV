@@ -14,6 +14,7 @@ namespace QLDSV
     {
         int viTri = 0;
         String maKhoa = "";
+        Boolean kiemTraThayDoi = false;
         Boolean checkAdd = false;
 
         public frmLop()
@@ -29,7 +30,22 @@ namespace QLDSV
                 cmbBoPhan.SelectedIndex = Program.mBoPhan;
                 return;
             }
-            if (Program.FrmDangNhap.Visible == false)
+           /* if (MessageBox.Show("Bạn có muốn lưu lại vào cơ sở dữ liệu không?", "Xác nhận.", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                try
+                {
+                    //bdsLop.ResetCurrentItem();
+                    this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.lOPTableAdapter.Update(this.dS.LOP);
+                    MessageBox.Show("Lưu dữ liệu thành công!", "", MessageBoxButtons.OK);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi ghi lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
+                    return;
+                }
+            }*/
+                if (Program.FrmDangNhap.Visible == false)
             {
                 if(cmbBoPhan.SelectedIndex == Program.mBoPhan)
                 {
@@ -38,8 +54,26 @@ namespace QLDSV
                 else if (cmbBoPhan.SelectedValue != null && cmbBoPhan.SelectedValue.ToString() == "System.Data.DataRowView") return;
                 {
                     Program.servername = cmbBoPhan.SelectedValue.ToString();
+
                     if (cmbBoPhan.SelectedIndex != Program.mBoPhan)
                     {
+                        if(kiemTraThayDoi == true)
+                        if (MessageBox.Show("Bạn có muốn lưu lại vào cơ sở dữ liệu không?", "Xác nhận.", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                        {
+                            try
+                            {
+                                //bdsLop.ResetCurrentItem();
+                                this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
+                                this.lOPTableAdapter.Update(this.dS.LOP);
+                                MessageBox.Show("Lưu dữ liệu thành công!", "", MessageBoxButtons.OK);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Lỗi ghi lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
+                                return;
+                            }
+                        }
+                        
                         Program.mlogin = Program.remotelogin;
                         Program.password = Program.remotepassword;
                     }
@@ -64,6 +98,7 @@ namespace QLDSV
                         Program.mBoPhan = cmbBoPhan.SelectedIndex;
                     
                     }
+                    kiemTraThayDoi = false;
                 }
             }
         }
@@ -120,13 +155,15 @@ namespace QLDSV
             txtMaKhoa.Enabled = false;
             gcLop.Enabled = false;
             checkAdd = true;
-            btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = false;
+            btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = btnLuuSQL.Enabled= btnPhucHoi.Enabled=  false;
+            kiemTraThayDoi = true;
         }
 
         // Kiểm tra tồn tại lớp
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            kiemTraThayDoi = true;
             viTri = bdsLop.Position;
             if (txtMaLop.Text.Trim() == "")
             {
@@ -193,24 +230,11 @@ namespace QLDSV
 
             }
             Program.myReader.Close();
-
-            try
-            {
-                bdsLop.EndEdit();
-                //bdsLop.ResetCurrentItem();
-                this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.lOPTableAdapter.Update(this.dS.LOP);
-                MessageBox.Show("Lưu dữ liệu thành công!", "", MessageBoxButtons.OK);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi ghi lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
-                return;
-            }
+            bdsLop.EndEdit();
             gbLop.Enabled = false;
             gcLop.Enabled = true;
             cmbBoPhan.Enabled = true;
-            btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = true;
+            btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = btnLuuSQL.Enabled = btnPhucHoi.Enabled = true;
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -227,13 +251,14 @@ namespace QLDSV
             cmbBoPhan.Enabled = true;
             gcLop.Enabled = true;
             gbLop.Enabled = false;
-            btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = true;
+            btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = btnLuuSQL.Enabled = btnPhucHoi.Enabled = true;
         }
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            kiemTraThayDoi = true;
             String malop = "";
-            Console.WriteLine(bdsLop.Count);
+            
             if (bdsSinhVien.Count > 0)
             {
                 MessageBox.Show("Không thể xóa lớp này vì Lớp đã có sinh viên.", "", MessageBoxButtons.OK);
@@ -245,8 +270,8 @@ namespace QLDSV
                 {
                     malop = (((DataRowView)bdsLop[bdsLop.Position])["MALOP"].ToString());
                     bdsLop.RemoveCurrent();
-                    this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.lOPTableAdapter.Update(this.dS.LOP);
+                   /* this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.lOPTableAdapter.Update(this.dS.LOP);*/
                 }
                 catch (Exception ex)
                 {
@@ -268,8 +293,25 @@ namespace QLDSV
             txtMaKhoa.Text = maKhoa;
             txtMaKhoa.Enabled = false;
             gcLop.Enabled = false;
-        
-            btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = false;
+            kiemTraThayDoi = true;
+            btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = btnLuuSQL.Enabled = btnPhucHoi.Enabled = false;
+        }
+
+        private void btnLuuSQL_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+
+                //bdsLop.ResetCurrentItem();
+                this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.lOPTableAdapter.Update(this.dS.LOP);
+                MessageBox.Show("Lưu dữ liệu thành công!", "", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi ghi lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
+                return;
+            }
         }
     }
 }
