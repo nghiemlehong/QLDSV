@@ -19,6 +19,7 @@ namespace QLDSV
         public static SqlConnection conn = new SqlConnection();
         public static String connstr;
         public static SqlDataReader myReader;
+        public static DataTable myTable;
         public static String servername = "";
         public static String username = "";
         public static String mlogin = "";

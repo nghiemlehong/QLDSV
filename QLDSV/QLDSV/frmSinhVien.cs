@@ -24,7 +24,7 @@ namespace QLDSV
         private void frmSinhVien_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dS.DIEM' table. You can move, or remove it, as needed.
-            this.dIEMTableAdapter.Fill(this.dS.DIEM);
+           
 
 
             // TODO: This line of code loads data into the 'dS.SINHVIEN' table. You can move, or remove it, as needed.
@@ -33,6 +33,7 @@ namespace QLDSV
             this.lOPTableAdapter.Fill(this.dS.LOP);
             this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
+            this.dIEMTableAdapter.Fill(this.dS.DIEM);
             // TODO: This line of code loads data into the 'dS.LOP' table. You can move, or remove it, as needed.
             // TODO: This line of code loads data into the 'qLDSVDataSet.V_DS_PHANMANH' table. You can move, or remove it, as needed.
             cmbBoPhan.DataSource = Program.bds_DSPM;
@@ -315,12 +316,18 @@ namespace QLDSV
                 this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.sINHVIENTableAdapter.Update(this.dS.SINHVIEN);
                 MessageBox.Show("Lưu dữ liệu thành công!", "", MessageBoxButtons.OK);
+                kiemTraThayDoi = false;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi ghi sinh viên.\n" + ex.Message, "", MessageBoxButtons.OK);
                 return;
             }
+        }
+
+        private void btnChuyenLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
     }
 }

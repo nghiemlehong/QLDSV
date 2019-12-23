@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace QLDSV
 {
-    public partial class frmLop : Form
+    public partial class frmLop : DevExpress.XtraEditors.XtraForm
     {
         int viTri = 0;
         String maKhoa = "";
@@ -96,7 +96,7 @@ namespace QLDSV
                             
                        
                         Program.mBoPhan = cmbBoPhan.SelectedIndex;
-                    
+                        
                     }
                     kiemTraThayDoi = false;
                 }
@@ -183,7 +183,7 @@ namespace QLDSV
                 if (txtMaLop.Text.Trim() == ((DataRowView)bdsLop[i])["MALOP"].ToString().Trim())
                 {
                     dem1++;
-                    Console.WriteLine(((DataRowView)bdsLop[i])["MALOP"].ToString().Trim());
+                    
                 }
                 if (txtTenLop.Text.Trim() == ((DataRowView)bdsLop[i])["TENLOP"].ToString().Trim())
                     dem2++;
@@ -260,6 +260,7 @@ namespace QLDSV
             kiemTraThayDoi = true;
             String malop = "";
             viTri = bdsLop.Position;
+            Console.WriteLine(bdsSinhVien.Count);
             if (bdsSinhVien.Count > 0)
             {
                 MessageBox.Show("Không thể xóa lớp này vì Lớp đã có sinh viên.", "", MessageBoxButtons.OK);
@@ -308,6 +309,7 @@ namespace QLDSV
                 this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.lOPTableAdapter.Update(this.dS.LOP);
                 MessageBox.Show("Lưu dữ liệu thành công!", "", MessageBoxButtons.OK);
+                kiemTraThayDoi = false;
             }
             catch (Exception ex)
             {

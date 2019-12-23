@@ -329,8 +329,8 @@
             // 
             this.btnLuuSQL.Caption = "Lưu SQL";
             this.btnLuuSQL.Id = 6;
-            this.btnLuuSQL.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnLuuSQL.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnLuuSQL.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLuuSQL.ImageOptions.Image")));
+            this.btnLuuSQL.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLuuSQL.ImageOptions.LargeImage")));
             this.btnLuuSQL.Name = "btnLuuSQL";
             this.btnLuuSQL.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
@@ -349,6 +349,7 @@
             this.btnChuyenLop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChuyenLop.ImageOptions.Image")));
             this.btnChuyenLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnChuyenLop.ImageOptions.LargeImage")));
             this.btnChuyenLop.Name = "btnChuyenLop";
+            this.btnChuyenLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChuyenLop_ItemClick);
             // 
             // barDockControl1
             // 
@@ -447,12 +448,14 @@
             this.gridView3.GridControl = this.gcLop;
             this.gridView3.Name = "gridView3";
             this.gridView3.OptionsBehavior.ReadOnly = true;
+            this.gridView3.OptionsView.ShowGroupPanel = false;
             // 
             // colMALOP
             // 
             this.colMALOP.Caption = "Mã lớp";
             this.colMALOP.FieldName = "MALOP";
             this.colMALOP.Name = "colMALOP";
+            this.colMALOP.OptionsColumn.AllowEdit = false;
             this.colMALOP.Visible = true;
             this.colMALOP.VisibleIndex = 0;
             // 
@@ -461,6 +464,7 @@
             this.colTENLOP.Caption = "Tên lớp";
             this.colTENLOP.FieldName = "TENLOP";
             this.colTENLOP.Name = "colTENLOP";
+            this.colTENLOP.OptionsColumn.AllowEdit = false;
             this.colTENLOP.Visible = true;
             this.colTENLOP.VisibleIndex = 1;
             // 
@@ -469,6 +473,7 @@
             this.colMAKH.Caption = "Mã khoa";
             this.colMAKH.FieldName = "MAKH";
             this.colMAKH.Name = "colMAKH";
+            this.colMAKH.OptionsColumn.AllowEdit = false;
             this.colMAKH.Visible = true;
             this.colMAKH.VisibleIndex = 2;
             // 
@@ -501,12 +506,14 @@
             this.gridView4.GridControl = this.gcSinhVien;
             this.gridView4.Name = "gridView4";
             this.gridView4.OptionsBehavior.ReadOnly = true;
+            this.gridView4.OptionsView.ShowGroupPanel = false;
             // 
             // colMASV
             // 
             this.colMASV.Caption = "MSV";
             this.colMASV.FieldName = "MASV";
             this.colMASV.Name = "colMASV";
+            this.colMASV.OptionsColumn.AllowEdit = false;
             this.colMASV.Visible = true;
             this.colMASV.VisibleIndex = 0;
             // 
@@ -515,6 +522,7 @@
             this.colHO.Caption = "Họ";
             this.colHO.FieldName = "HO";
             this.colHO.Name = "colHO";
+            this.colHO.OptionsColumn.AllowEdit = false;
             this.colHO.Visible = true;
             this.colHO.VisibleIndex = 1;
             // 
@@ -523,6 +531,7 @@
             this.colTEN.Caption = "Tên";
             this.colTEN.FieldName = "TEN";
             this.colTEN.Name = "colTEN";
+            this.colTEN.OptionsColumn.AllowEdit = false;
             this.colTEN.Visible = true;
             this.colTEN.VisibleIndex = 2;
             // 
@@ -531,6 +540,7 @@
             this.colMALOP1.Caption = "Mã lớp";
             this.colMALOP1.FieldName = "MALOP";
             this.colMALOP1.Name = "colMALOP1";
+            this.colMALOP1.OptionsColumn.AllowEdit = false;
             this.colMALOP1.Visible = true;
             this.colMALOP1.VisibleIndex = 3;
             // 
@@ -539,6 +549,7 @@
             this.colPHAI.Caption = "Phái";
             this.colPHAI.FieldName = "PHAI";
             this.colPHAI.Name = "colPHAI";
+            this.colPHAI.OptionsColumn.AllowEdit = false;
             this.colPHAI.Visible = true;
             this.colPHAI.VisibleIndex = 4;
             // 
@@ -547,6 +558,7 @@
             this.colNGAYSINH.Caption = "Ngày sinh";
             this.colNGAYSINH.FieldName = "NGAYSINH";
             this.colNGAYSINH.Name = "colNGAYSINH";
+            this.colNGAYSINH.OptionsColumn.AllowEdit = false;
             this.colNGAYSINH.Visible = true;
             this.colNGAYSINH.VisibleIndex = 5;
             // 
@@ -555,6 +567,7 @@
             this.colNOISINH.Caption = "Nơi sinh";
             this.colNOISINH.FieldName = "NOISINH";
             this.colNOISINH.Name = "colNOISINH";
+            this.colNOISINH.OptionsColumn.AllowEdit = false;
             this.colNOISINH.Visible = true;
             this.colNOISINH.VisibleIndex = 6;
             // 
@@ -563,6 +576,7 @@
             this.colDIACHI.Caption = "Địa chỉ";
             this.colDIACHI.FieldName = "DIACHI";
             this.colDIACHI.Name = "colDIACHI";
+            this.colDIACHI.OptionsColumn.AllowEdit = false;
             this.colDIACHI.Visible = true;
             this.colDIACHI.VisibleIndex = 7;
             // 
@@ -571,6 +585,7 @@
             this.colGHICHU.Caption = "Ghi chú";
             this.colGHICHU.FieldName = "GHICHU";
             this.colGHICHU.Name = "colGHICHU";
+            this.colGHICHU.OptionsColumn.AllowEdit = false;
             this.colGHICHU.Visible = true;
             this.colGHICHU.VisibleIndex = 8;
             // 
@@ -579,6 +594,7 @@
             this.colNGHIHOC.Caption = "Nghỉ học";
             this.colNGHIHOC.FieldName = "NGHIHOC";
             this.colNGHIHOC.Name = "colNGHIHOC";
+            this.colNGHIHOC.OptionsColumn.AllowEdit = false;
             this.colNGHIHOC.Visible = true;
             this.colNGHIHOC.VisibleIndex = 9;
             // 

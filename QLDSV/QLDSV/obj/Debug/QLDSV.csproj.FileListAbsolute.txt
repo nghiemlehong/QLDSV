@@ -94,3 +94,10 @@ E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\bi
 E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\bin\Debug\ru\DevExpress.Office.v19.1.Core.resources.dll
 E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\obj\Debug\QLDSV.frmMonHoc.resources
 E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\obj\Debug\QLDSV.frmNhapDiem.resources
+E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\bin\Debug\DevExpress.XtraVerticalGrid.v19.1.dll
+E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\bin\Debug\DevExpress.XtraVerticalGrid.v19.1.xml
+E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\bin\Debug\de\DevExpress.XtraVerticalGrid.v19.1.resources.dll
+E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\bin\Debug\es\DevExpress.XtraVerticalGrid.v19.1.resources.dll
+E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\bin\Debug\ja\DevExpress.XtraVerticalGrid.v19.1.resources.dll
+E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\bin\Debug\ru\DevExpress.XtraVerticalGrid.v19.1.resources.dll
+E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\obj\Debug\QLDSV.frmChuyenLop.resources
