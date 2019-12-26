@@ -41,22 +41,27 @@ namespace QLDSV
             if (Program.mGroup == "PGV")
             {
                 cmbBoPhan.Enabled = true;
-
+                rd1.Checked = true;
             }
-            else cmbBoPhan.Enabled = false;
-
-            rd1.Checked = true;
+            else
+            {
+                cmbBoPhan.Enabled = false;
+                grNhom.Enabled = false;
+                if (Program.mGroup == "KHOA")
+                    rd2.Checked = true;
+                else rd3.Checked = true;
+            }
 
         }
 
         private void CmbBoPhan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Program.mGroup != "PGV")
+           /* if (Program.mGroup == "PKETOAN")
             {
                 //MessageBox.Show("Login không đủ quyền truy cập!", "", MessageBoxButtons.OK);
                 cmbBoPhan.SelectedIndex = Program.mBoPhan;
                 return;
-            }
+            }*/
             if (Program.FrmDangNhap.Visible == false)
             {
                 if (cmbBoPhan.SelectedIndex == Program.mBoPhan)
@@ -109,7 +114,7 @@ namespace QLDSV
                 return;
             }
             if (rd1.Checked == true) nhom = "PGV"; else if (rd2.Checked == true) nhom = "KHOA"; else nhom = "PKETOAN";
-            String strLenh = "EXEC SP_TAOTAIKHOAN '" + txtNamDN.Text.Trim() + "','" + txtPass.Text.Trim() + "','" + txtGV.Text.Trim() + "','" + nhom + "'" ;
+            String strLenh = "EXEC SP_TaoTaiKhoan '" + txtNamDN.Text.Trim() + "','" + txtPass.Text.Trim() + "','" + txtGV.Text.Trim() + "','" + nhom + "'" ;
 
             try
             {

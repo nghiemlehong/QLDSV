@@ -24,7 +24,7 @@ namespace QLDSV
 
         private void cmbBoPhan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbBoPhan.SelectedIndex == 0)
+            if (cmbBoPhan.SelectedIndex == 0  )
             {
                 MessageBox.Show("Login không đủ quyền truy cập!", "", MessageBoxButtons.OK);
                 cmbBoPhan.SelectedIndex = Program.mBoPhan;
@@ -123,9 +123,15 @@ namespace QLDSV
             if (Program.mGroup == "PGV")
             {
                 cmbBoPhan.Enabled = true;
-               
+                btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = btnLuuSQL.Enabled = btnPhucHoi.Enabled = true;
+
             }
-            else cmbBoPhan.Enabled = false;
+            else
+            {
+                cmbBoPhan.Enabled = false;
+                btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = btnLuuSQL.Enabled = btnPhucHoi.Enabled = false;
+
+            }
             gbLop.Enabled = false;
             maKhoa = ((DataRowView)bdsLop[bdsLop.Position])["MAKH"].ToString();
 
@@ -248,7 +254,12 @@ namespace QLDSV
             {
                 bdsLop.CancelEdit();
             }
-            cmbBoPhan.Enabled = true;
+            if (Program.mGroup == "PGV")
+            {
+                cmbBoPhan.Enabled = true;
+
+            }
+            else cmbBoPhan.Enabled = false;
             gcLop.Enabled = true;
             gbLop.Enabled = false;
             btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = btnLuuSQL.Enabled = btnPhucHoi.Enabled = true;
@@ -260,7 +271,7 @@ namespace QLDSV
             kiemTraThayDoi = true;
             String malop = "";
             viTri = bdsLop.Position;
-            Console.WriteLine(bdsSinhVien.Count);
+         
             if (bdsSinhVien.Count > 0)
             {
                 MessageBox.Show("Không thể xóa lớp này vì Lớp đã có sinh viên.", "", MessageBoxButtons.OK);
@@ -285,6 +296,12 @@ namespace QLDSV
                 }
             }
             if (bdsLop.Count == 0) btnXoa.Enabled = false;
+            if (Program.mGroup == "PGV")
+            {
+                cmbBoPhan.Enabled = true;
+
+            }
+            else cmbBoPhan.Enabled = false;
         }
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

@@ -33,7 +33,9 @@ namespace QLDSV
         {
             dangXuat = true;
             Program.FrmDangNhap.Visible = true;
+            Program.bds_DSPM = null;
             Program.FrmMain.Close();
+            
         }
 
         private void ribbonControl1_Click(object sender, EventArgs e)
@@ -102,6 +104,30 @@ namespace QLDSV
             else
             {
                 frmDangKy f = new frmDangKy();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnDanhSachSinhVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmDsSV));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmDsSV f = new frmDsSV();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnHocPhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmHocPhi));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmHocPhi f = new frmHocPhi();
                 f.MdiParent = this;
                 f.Show();
             }

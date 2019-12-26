@@ -40,6 +40,7 @@
             this.btnNhapDiem = new DevExpress.XtraBars.BarButtonItem();
             this.btnDangKy = new DevExpress.XtraBars.BarButtonItem();
             this.btnHocPhi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDanhSachSinhVien = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -75,9 +76,10 @@
             this.btnMon,
             this.btnNhapDiem,
             this.btnDangKy,
-            this.btnHocPhi});
+            this.btnHocPhi,
+            this.btnDanhSachSinhVien});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 1;
+            this.ribbonControl1.MaxItemId = 2;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -153,6 +155,14 @@
             this.btnHocPhi.Id = 11;
             this.btnHocPhi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnHocPhi.ImageOptions.SvgImage")));
             this.btnHocPhi.Name = "btnHocPhi";
+            this.btnHocPhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHocPhi_ItemClick);
+            // 
+            // btnDanhSachSinhVien
+            // 
+            this.btnDanhSachSinhVien.Caption = "Danh sách sinh viên";
+            this.btnDanhSachSinhVien.Id = 1;
+            this.btnDanhSachSinhVien.Name = "btnDanhSachSinhVien";
+            this.btnDanhSachSinhVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanhSachSinhVien_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -218,6 +228,7 @@
             // 
             // ribbonPageGroup3
             // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnDanhSachSinhVien);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
@@ -304,6 +315,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.BarButtonItem btnHocPhi;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.BarButtonItem btnDanhSachSinhVien;
     }
 }
 

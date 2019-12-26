@@ -15,6 +15,7 @@ namespace QLDSV
         int viTri = 0;
         String maKhoa = "";
         Boolean checkAdd = false;
+        Boolean kiemTraThemSV = false;
         Boolean kiemTraThayDoi = false;
         public frmSinhVien()
         {
@@ -23,8 +24,10 @@ namespace QLDSV
 
         private void frmSinhVien_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qLDSVDataSet.LOP' table. You can move, or remove it, as needed.
+            this.lOPTableAdapter1.Fill(this.qLDSVDataSet.LOP);
             // TODO: This line of code loads data into the 'dS.DIEM' table. You can move, or remove it, as needed.
-           
+
 
 
             // TODO: This line of code loads data into the 'dS.SINHVIEN' table. You can move, or remove it, as needed.
@@ -44,12 +47,23 @@ namespace QLDSV
             if (Program.mGroup == "PGV")
             {
                 cmbBoPhan.Enabled = true;
+                btnLuuSQL.Enabled = btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnChuyenLop.Enabled = true;
+                
+               
                 //bar2.Visible = false;
             }
-            else cmbBoPhan.Enabled = false;
+            else
+            {
+                cmbBoPhan.Enabled = false;
+                btnLuuSQL.Enabled = btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnChuyenLop.Enabled = false;
+                
+
+            }
           
-          
-            gbSinhVien.Enabled = false;
+
+
+            gbLop.Enabled = false;
+            maKhoa = ((DataRowView)bdsLop[bdsLop.Position])["MAKH"].ToString();
 
         }
 
@@ -106,6 +120,7 @@ namespace QLDSV
                         this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
                         this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
                         Program.mBoPhan = cmbBoPhan.SelectedIndex;
+                        maKhoa = ((DataRowView)bdsLop[bdsLop.Position])["MAKH"].ToString();
 
                     }
                     kiemTraThayDoi = false;
@@ -115,16 +130,20 @@ namespace QLDSV
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            gbSinhVien.Enabled = true;
+            // Thêm lớp
+            gbLop.Enabled = true;
             viTri = bdsLop.Position;
-            bdsSinhVien.AddNew();
-            txtMaLop.Text = ((DataRowView)bdsLop[bdsLop.Position])["MALOP"].ToString();
-            chkPhai.Checked = true;
-            chkNghiHoc.Checked = false;
+            bdsLop.AddNew();
+            txtMaKhoa.Text = maKhoa;
+            txtMaKhoa.Enabled = false;
+           
+         
+            // chkPhai.Checked = true;
+            // chkNghiHoc.Checked = false;
             //  dateNgaySinh.Checked = true;
-            txtMaLop.Enabled = false;
-           // chkPhai.Enabled = false;
-            chkNghiHoc.Enabled = false;
+            // txtMaLop.Enabled = false;
+            // chkPhai.Enabled = false;
+            //  chkNghiHoc.Enabled = false;
             gcSinhVien.Enabled = gcLop.Enabled = false;
             cmbBoPhan.Enabled = false;
             btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnLuuSQL.Enabled= btnPhucHoi.Enabled = btnChuyenLop.Enabled = false;
@@ -137,7 +156,7 @@ namespace QLDSV
         private void btnSave_Click(object sender, EventArgs e)
         {
             
-            if (txtMaSinhVien.Text.Trim() == "")
+         /*   if (txtMaSinhVien.Text.Trim() == "")
             {
                 MessageBox.Show("Mã sinh viên không được trống!", "", MessageBoxButtons.OK);
                 txtMaSinhVien.Focus();
@@ -183,8 +202,8 @@ namespace QLDSV
                     txtMaSinhVien.Focus();
                     return;
                 }
-            }
-           
+            }*/
+ /*          
             String strLenh =
                " DECLARE @ret int"+
                " EXEC dbo.sp_KiemTraSinhVien"+
@@ -199,12 +218,12 @@ namespace QLDSV
                 while (Program.myReader.Read())
                 {
                     int ret = Program.myReader.GetInt32(0);
-                    /* if (ret == 1)
+                    *//* if (ret == 1)
                      {
                          Program.myReader.Close();
                          MessageBox.Show("Mã sinh viên đã trùng", "Đóng");
                          return;
-                     }*/
+                     }*//*
                      if (ret == 2)// Kiểm tra trùng mã sinh viên ở khoa khác
                     {
                         Program.myReader.Close();
@@ -213,18 +232,19 @@ namespace QLDSV
                     }
                 }
 
-            }
+            }*/
             Program.myReader.Close();
             bdsSinhVien.EndEdit();
-            gbSinhVien.Enabled = false;
+            gbLop.Enabled = false;
             gcSinhVien.Enabled = gcLop.Enabled = true;
             if (Program.mGroup == "PGV")
             {
                 cmbBoPhan.Enabled = true;
+                btnLuuSQL.Enabled = btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnChuyenLop.Enabled = true;
+
                 //bar2.Visible = false;
             }
             else cmbBoPhan.Enabled = false;
-           btnLuuSQL.Enabled = btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnChuyenLop.Enabled = true;
 
 
         }
@@ -233,86 +253,132 @@ namespace QLDSV
         {
             if (checkAdd == true)
             {
-                bdsSinhVien.RemoveCurrent();
-                bdsSinhVien.CancelEdit();
+                bdsLop.RemoveCurrent();
+                bdsLop.CancelEdit();
                 checkAdd = false;
             }
             else
             {
-                bdsSinhVien.CancelEdit();
+                bdsLop.CancelEdit();
             }
-            gbSinhVien.Enabled = false;
+            gbLop.Enabled = false;
             gcSinhVien.Enabled = gcLop.Enabled = true;
             if (Program.mGroup == "PGV")
             {
                 cmbBoPhan.Enabled = true;
+                btnLuuSQL.Enabled = btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnChuyenLop.Enabled = true;
+
                 //bar2.Visible = false;
             }
             else cmbBoPhan.Enabled = false;
-           btnLuuSQL.Enabled = btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnChuyenLop.Enabled = true;
 
         }
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
-            String masv = "";
-            if (chkNghiHoc.Checked)
+            /*    String masv = "";
+                if (chkNghiHoc.Checked)
+                {
+                    MessageBox.Show("Sinh viên này đã nghỉ học!", "", MessageBoxButtons.OK);
+                    return;
+                }
+                if(bdsSinhVien.Count==0)
+                {
+                    MessageBox.Show("Lớp không có sinh viên để xóa!", "", MessageBoxButtons.OK);
+                    return;
+                }
+                if (MessageBox.Show("Bạn có thực sự muốn xóa Sinh viên này??", "Đánh dấu nghỉ học?", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    try
+                    {
+                        masv = (((DataRowView)bdsSinhVien[bdsSinhVien.Position])["MASV"].ToString());
+                        chkNghiHoc.Checked = true;
+                        bdsSinhVien.EndEdit();
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi xóa sinh viên.\nBạn hãy xóa lại\n" + ex.Message, "", MessageBoxButtons.OK);
+                        this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
+                        bdsSinhVien.Position = bdsSinhVien.Find("MASV", masv);
+                        return;
+                    }
+                }
+                kiemTraThayDoi = true;*/
+
+            kiemTraThayDoi = true;
+            String malop = "";
+            viTri = bdsLop.Position;
+
+            if (bdsSinhVien.Count > 0)
             {
-                MessageBox.Show("Sinh viên này đã nghỉ học!", "", MessageBoxButtons.OK);
+                MessageBox.Show("Không thể xóa lớp này vì Lớp đã có sinh viên.", "", MessageBoxButtons.OK);
                 return;
             }
-            if(bdsSinhVien.Count==0)
-            {
-                MessageBox.Show("Lớp không có sinh viên để xóa!", "", MessageBoxButtons.OK);
-                return;
-            }
-            if (MessageBox.Show("Bạn có thực sự muốn xóa Sinh viên này??", "Đánh dấu nghỉ học?", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (MessageBox.Show("Bạn có thực sự muốn xóa Lớp này??", "Xác nhận.", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 try
                 {
-                    masv = (((DataRowView)bdsSinhVien[bdsSinhVien.Position])["MASV"].ToString());
-                    chkNghiHoc.Checked = true;
-                    bdsSinhVien.EndEdit();
-                
-
+                    malop = (((DataRowView)bdsLop[bdsLop.Position])["MALOP"].ToString());
+                    bdsLop.RemoveCurrent();
+                    /* this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
+                     this.lOPTableAdapter.Update(this.dS.LOP);*/
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi xóa sinh viên.\nBạn hãy xóa lại\n" + ex.Message, "", MessageBoxButtons.OK);
-                    this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
-                    bdsSinhVien.Position = bdsSinhVien.Find("MASV", masv);
+                    MessageBox.Show("Lỗi xóa Lớp.\nBạn hãy xóa lại\n" + ex.Message, "", MessageBoxButtons.OK);
+                    this.lOPTableAdapter.Fill(this.dS.LOP);
+                    bdsLop.Position = bdsLop.Find("MALOP", malop);
                     return;
+
                 }
             }
-            kiemTraThayDoi = true;
+            if (bdsLop.Count == 0) btnXoa.Enabled = false;
+            if (Program.mGroup == "PGV")
+            {
+                cmbBoPhan.Enabled = true;
+
+            }
+            else cmbBoPhan.Enabled = false;
 
 
         }
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            gbSinhVien.Enabled = true;
+            /* gbSinhVien.Enabled = true;
+             viTri = bdsLop.Position;
+             chkPhai.Checked = true;
+             chkNghiHoc.Checked = false;
+             //  dateNgaySinh.Checked = true;
+             txtMaLop.Enabled = false;
+             // chkPhai.Enabled = false;
+             chkNghiHoc.Enabled = false;
+             gcSinhVien.Enabled = gcLop.Enabled = false;
+             cmbBoPhan.Enabled = false;
+             btnLuuSQL.Enabled = btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnChuyenLop.Enabled = false;
+             //grctrlLop.Enabled = grctrlSV.Enabled = false;
+             //checkGhi = false;
+             kiemTraThayDoi = true;*/
             viTri = bdsLop.Position;
-            chkPhai.Checked = true;
-            chkNghiHoc.Checked = false;
-            //  dateNgaySinh.Checked = true;
-            txtMaLop.Enabled = false;
-            // chkPhai.Enabled = false;
-            chkNghiHoc.Enabled = false;
-            gcSinhVien.Enabled = gcLop.Enabled = false;
+            gbLop.Enabled = true;
             cmbBoPhan.Enabled = false;
-            btnLuuSQL.Enabled = btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnChuyenLop.Enabled = false;
-            //grctrlLop.Enabled = grctrlSV.Enabled = false;
-            //checkGhi = false;
+            txtMaKhoa.Text = maKhoa;
+            txtMaKhoa.Enabled = false;
+            gcLop.Enabled = false;
             kiemTraThayDoi = true;
-           
+            btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = btnLuuSQL.Enabled = btnPhucHoi.Enabled = false;
+
         }
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
-            {              
+            {
+                this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.lOPTableAdapter.Update(this.dS.LOP);
                 this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.sINHVIENTableAdapter.Update(this.dS.SINHVIEN);
                 MessageBox.Show("Lưu dữ liệu thành công!", "", MessageBoxButtons.OK);
@@ -328,6 +394,185 @@ namespace QLDSV
         private void btnChuyenLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
+        }
+
+        private void btnCapNhat_Click(object sender, EventArgs e)
+        {
+            kiemTraThayDoi = true;
+            viTri = bdsLop.Position;
+            if (txtMaLop.Text.Trim() == "")
+            {
+                MessageBox.Show("Mã lớp không được thiếu!", "", MessageBoxButtons.OK);
+                txtMaLop.Focus();
+                return;
+            }
+            if (txtTenLop.Text.Trim() == "")
+            {
+                MessageBox.Show("Tên lớp không được thiếu!", "", MessageBoxButtons.OK);
+                txtTenLop.Focus();
+                return;
+            }
+            int dem1 = 0, dem2 = 0;
+            for (int i = 0; i < bdsLop.Count; i++)
+            {
+                if (txtMaLop.Text.Trim() == ((DataRowView)bdsLop[i])["MALOP"].ToString().Trim())
+                {
+                    dem1++;
+
+                }
+                if (txtTenLop.Text.Trim() == ((DataRowView)bdsLop[i])["TENLOP"].ToString().Trim())
+                    dem2++;
+            }
+            if (dem1 == 2)
+            {
+                MessageBox.Show("Mã lớp bị trùng!", "", MessageBoxButtons.OK);
+                txtMaLop.Focus();
+                return;
+            }
+            if (dem2 == 2)
+            {
+                MessageBox.Show("Tên lớp bị trùng!", "", MessageBoxButtons.OK);
+                txtTenLop.Focus();
+                return;
+            }
+
+            String strLenh =
+           " declare @ret int;" +
+           " EXEC dbo.sp_KiemTraLop @malop = '" + txtMaLop.Text + "'," +
+           " @tenlop = N'" + txtTenLop.Text + "', " +
+           " @ret = @ret OUTPUT" +
+           " SELECT  @ret";
+            Program.myReader = Program.ExecSqlDataReader(strLenh);
+
+            if (Program.myReader != null && Program.myReader.HasRows)
+            {
+                while (Program.myReader.Read())
+                {
+                    int ret = Program.myReader.GetInt32(0);
+                    /* if (ret == 1)
+                     {
+                         Program.myReader.Close();
+                         MessageBox.Show("Mã hoặc tên lớp đã tồn tại ở khoa khác", "Đóng");
+                         return;
+                     }*/
+                    if (ret == 2)
+                    {
+                        Program.myReader.Close();
+                        MessageBox.Show("Mã hoặc tên lớp đã tồn tại ở khoa khác", "Đóng");
+                        return;
+                    }
+                }
+
+            }
+            Program.myReader.Close();
+            bdsLop.EndEdit();
+            gbLop.Enabled = false;
+            gcLop.Enabled = true;
+            if (Program.mGroup == "PGV")
+            {
+                cmbBoPhan.Enabled = true;
+                btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = btnLuuSQL.Enabled = btnPhucHoi.Enabled = true;
+            }
+            else cmbBoPhan.Enabled = false;
+        }
+
+        private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            bdsLop.CancelEdit();
+            bdsLop.Position = viTri;
+            this.lOPTableAdapter.Fill(this.dS.LOP);
+          
+        }
+
+        private void tsThem_Click(object sender, EventArgs e)
+        {
+            bdsSinhVien.AddNew();
+            tsThem.Enabled = tsXoa.Enabled = tsChuyenLop.Enabled = false;
+            btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = btnLuuSQL.Enabled = btnPhucHoi.Enabled = false ;
+            gcLop.Enabled = false;
+            kiemTraThemSV = true;
+
+          
+        }
+
+        private void tsLuu_Click(object sender, EventArgs e)
+        {
+            if(kiemTraThemSV == true)
+            {
+                for(int i =0; i< bdsSinhVien.Count; i++)
+                {
+                    if(gvSinhVien.GetRowCellValue(i, "MASV").ToString().Trim() == "")
+                    {
+                        MessageBox.Show("Bạn chưa nhập mã sinh viên!");
+                        gvSinhVien.FocusedRowHandle = i;
+                        return;
+                    }
+                    if (gvSinhVien.GetRowCellValue(i, "HO").ToString().Trim() == "")
+                    {
+                        MessageBox.Show("Bạn chưa nhập họ sinh viên!");
+                        gvSinhVien.FocusedRowHandle = i;
+                        return;
+                    }
+                    if (gvSinhVien.GetRowCellValue(i, "TEN").ToString().Trim() == "")
+                    {
+                        MessageBox.Show("Bạn chưa nhập tên sinh viên!");
+                        gvSinhVien.FocusedRowHandle = i;
+                        return;
+                    }
+                }
+                int dem = 0;
+                for (int i = 0; i < bdsToanSV.Count; i++)
+                {
+
+                    if (gvSinhVien.GetRowCellValue(i, "MASV").ToString().Trim() == ((DataRowView)bdsToanSV[i])["MASV"].ToString().Trim())
+                    {
+                      
+                        dem++;
+                    }
+                }
+
+                if (kiemTraThemSV == true)// Thêm sinh viên mới
+                {
+                    if (dem == 1)
+                    {
+                        MessageBox.Show("Mã sinh viên bị trùng!");
+                        
+                        return;
+                    }
+                }
+                else // Sửa sinh viên
+                {
+                    if (dem == 2)
+                    {
+                        MessageBox.Show("Mã sinh viên bị trùng!");
+                        
+                        return;
+                    }
+                }
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void tsChuyenLop_Click(object sender, EventArgs e)
+        {
+            String maSV= ((DataRowView)bdsSinhVien[bdsSinhVien.Position])["MASV"].ToString();
+            Console.WriteLine(maSV);
+            frmChuyenLop frmChuyen = new frmChuyenLop(maSV);
+            frmChuyen.Show();
+        }
+
+        private void tsPhucHoi_Click(object sender, EventArgs e)
+        {
+            bdsSinhVien.CancelEdit();
+            this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
+            tsThem.Enabled = tsXoa.Enabled = tsChuyenLop.Enabled = true;
+            btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = btnLuuSQL.Enabled = btnPhucHoi.Enabled = true;
+            gcLop.Enabled = true;
+            kiemTraThemSV = false ;
         }
     }
 }

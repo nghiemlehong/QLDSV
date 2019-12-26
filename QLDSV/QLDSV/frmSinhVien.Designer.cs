@@ -30,16 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label tENCNLabel;
-            System.Windows.Forms.Label mASVLabel;
-            System.Windows.Forms.Label hOLabel;
-            System.Windows.Forms.Label tENLabel;
+            System.Windows.Forms.Label tENLOPLabel;
+            System.Windows.Forms.Label mAKHLabel;
             System.Windows.Forms.Label mALOPLabel;
-            System.Windows.Forms.Label pHAILabel;
-            System.Windows.Forms.Label nGAYSINHLabel;
-            System.Windows.Forms.Label nOISINHLabel;
-            System.Windows.Forms.Label dIACHILabel;
-            System.Windows.Forms.Label gHICHULabel;
-            System.Windows.Forms.Label nGHIHOCLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSinhVien));
             this.bdsToanSV = new System.Windows.Forms.BindingSource(this.components);
             this.dS = new QLDSV.DS();
@@ -53,12 +46,12 @@
             this.btnSua = new DevExpress.XtraBars.BarButtonItem();
             this.btnLuuSQL = new DevExpress.XtraBars.BarButtonItem();
             this.btnPhucHoi = new DevExpress.XtraBars.BarButtonItem();
-            this.btnChuyenLop = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
             this.btnGhi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnChuyenLop = new DevExpress.XtraBars.BarButtonItem();
             this.sINHVIENTableAdapter = new QLDSV.DSTableAdapters.SINHVIENTableAdapter();
             this.tableAdapterManager1 = new QLDSV.DSTableAdapters.TableAdapterManager();
             this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
@@ -71,7 +64,7 @@
             this.colTENLOP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcLop = new DevExpress.XtraGrid.GridControl();
-            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gvSinhVien = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMASV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTEN = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -83,32 +76,26 @@
             this.colGHICHU = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNGHIHOC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcSinhVien = new DevExpress.XtraGrid.GridControl();
-            this.gbSinhVien = new System.Windows.Forms.GroupBox();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.chkNghiHoc = new DevExpress.XtraEditors.CheckEdit();
-            this.txtGhiChu = new DevExpress.XtraEditors.TextEdit();
-            this.txtDiaChi = new DevExpress.XtraEditors.TextEdit();
-            this.txtNoiSinh = new DevExpress.XtraEditors.TextEdit();
-            this.dateNgaySinh = new DevExpress.XtraEditors.DateEdit();
-            this.chkPhai = new DevExpress.XtraEditors.CheckEdit();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsThem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsXoa = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsLuu = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsPhucHoi = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsChuyenLop = new System.Windows.Forms.ToolStripMenuItem();
+            this.gbLop = new System.Windows.Forms.GroupBox();
+            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnCapNhat = new System.Windows.Forms.Button();
             this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
-            this.txtTen = new DevExpress.XtraEditors.TextEdit();
-            this.txtHo = new DevExpress.XtraEditors.TextEdit();
-            this.txtMaSinhVien = new DevExpress.XtraEditors.TextEdit();
+            this.txtMaKhoa = new DevExpress.XtraEditors.TextEdit();
+            this.txtTenLop = new DevExpress.XtraEditors.TextEdit();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.bdsDiem = new System.Windows.Forms.BindingSource(this.components);
             this.dIEMTableAdapter = new QLDSV.DSTableAdapters.DIEMTableAdapter();
+            this.lOPTableAdapter1 = new QLDSV.QLDSVDataSetTableAdapters.LOPTableAdapter();
             tENCNLabel = new System.Windows.Forms.Label();
-            mASVLabel = new System.Windows.Forms.Label();
-            hOLabel = new System.Windows.Forms.Label();
-            tENLabel = new System.Windows.Forms.Label();
+            tENLOPLabel = new System.Windows.Forms.Label();
+            mAKHLabel = new System.Windows.Forms.Label();
             mALOPLabel = new System.Windows.Forms.Label();
-            pHAILabel = new System.Windows.Forms.Label();
-            nGAYSINHLabel = new System.Windows.Forms.Label();
-            nOISINHLabel = new System.Windows.Forms.Label();
-            dIACHILabel = new System.Windows.Forms.Label();
-            gHICHULabel = new System.Windows.Forms.Label();
-            nGHIHOCLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bdsToanSV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVDataSet)).BeginInit();
@@ -118,20 +105,14 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcLop)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSinhVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcSinhVien)).BeginInit();
-            this.gbSinhVien.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkNghiHoc.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNoiSinh.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgaySinh.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgaySinh.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkPhai.Properties)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
+            this.gbLop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaSinhVien.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaKhoa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDiem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,95 +126,32 @@
             tENCNLabel.TabIndex = 0;
             tENCNLabel.Text = "Bộ phận :";
             // 
-            // mASVLabel
+            // tENLOPLabel
             // 
-            mASVLabel.AutoSize = true;
-            mASVLabel.Location = new System.Drawing.Point(12, 22);
-            mASVLabel.Name = "mASVLabel";
-            mASVLabel.Size = new System.Drawing.Size(82, 13);
-            mASVLabel.TabIndex = 0;
-            mASVLabel.Text = "MÃ SINH VIÊN :";
+            tENLOPLabel.AutoSize = true;
+            tENLOPLabel.Location = new System.Drawing.Point(65, 89);
+            tENLOPLabel.Name = "tENLOPLabel";
+            tENLOPLabel.Size = new System.Drawing.Size(49, 13);
+            tENLOPLabel.TabIndex = 22;
+            tENLOPLabel.Text = "Tên lớp :";
             // 
-            // hOLabel
+            // mAKHLabel
             // 
-            hOLabel.AutoSize = true;
-            hOLabel.Location = new System.Drawing.Point(69, 59);
-            hOLabel.Name = "hOLabel";
-            hOLabel.Size = new System.Drawing.Size(29, 13);
-            hOLabel.TabIndex = 2;
-            hOLabel.Text = "HỌ :";
-            // 
-            // tENLabel
-            // 
-            tENLabel.AutoSize = true;
-            tENLabel.Location = new System.Drawing.Point(221, 59);
-            tENLabel.Name = "tENLabel";
-            tENLabel.Size = new System.Drawing.Size(33, 13);
-            tENLabel.TabIndex = 4;
-            tENLabel.Text = "TÊN :";
+            mAKHLabel.AutoSize = true;
+            mAKHLabel.Location = new System.Drawing.Point(63, 134);
+            mAKHLabel.Name = "mAKHLabel";
+            mAKHLabel.Size = new System.Drawing.Size(51, 13);
+            mAKHLabel.TabIndex = 23;
+            mAKHLabel.Text = "Mã khoa:";
             // 
             // mALOPLabel
             // 
             mALOPLabel.AutoSize = true;
-            mALOPLabel.Location = new System.Drawing.Point(45, 96);
+            mALOPLabel.Location = new System.Drawing.Point(69, 41);
             mALOPLabel.Name = "mALOPLabel";
-            mALOPLabel.Size = new System.Drawing.Size(51, 13);
-            mALOPLabel.TabIndex = 6;
-            mALOPLabel.Text = "MÃ LỚP :";
-            // 
-            // pHAILabel
-            // 
-            pHAILabel.AutoSize = true;
-            pHAILabel.Location = new System.Drawing.Point(221, 96);
-            pHAILabel.Name = "pHAILabel";
-            pHAILabel.Size = new System.Drawing.Size(38, 13);
-            pHAILabel.TabIndex = 8;
-            pHAILabel.Text = "PHÁI :";
-            // 
-            // nGAYSINHLabel
-            // 
-            nGAYSINHLabel.AutoSize = true;
-            nGAYSINHLabel.Location = new System.Drawing.Point(216, 129);
-            nGAYSINHLabel.Name = "nGAYSINHLabel";
-            nGAYSINHLabel.Size = new System.Drawing.Size(68, 13);
-            nGAYSINHLabel.TabIndex = 10;
-            nGAYSINHLabel.Text = "NGÀY SINH :";
-            // 
-            // nOISINHLabel
-            // 
-            nOISINHLabel.AutoSize = true;
-            nOISINHLabel.Location = new System.Drawing.Point(37, 133);
-            nOISINHLabel.Name = "nOISINHLabel";
-            nOISINHLabel.Size = new System.Drawing.Size(60, 13);
-            nOISINHLabel.TabIndex = 12;
-            nOISINHLabel.Text = "NƠI SINH :";
-            // 
-            // dIACHILabel
-            // 
-            dIACHILabel.AutoSize = true;
-            dIACHILabel.Location = new System.Drawing.Point(46, 170);
-            dIACHILabel.Name = "dIACHILabel";
-            dIACHILabel.Size = new System.Drawing.Size(54, 13);
-            dIACHILabel.TabIndex = 14;
-            dIACHILabel.Text = "ĐỊA CHỈ :";
-            // 
-            // gHICHULabel
-            // 
-            gHICHULabel.AutoSize = true;
-            gHICHULabel.Location = new System.Drawing.Point(46, 210);
-            gHICHULabel.Name = "gHICHULabel";
-            gHICHULabel.Size = new System.Drawing.Size(56, 13);
-            gHICHULabel.TabIndex = 16;
-            gHICHULabel.Text = "GHI CHÚ :";
-            // 
-            // nGHIHOCLabel
-            // 
-            nGHIHOCLabel.AutoSize = true;
-            nGHIHOCLabel.Location = new System.Drawing.Point(222, 211);
-            nGHIHOCLabel.Name = "nGHIHOCLabel";
-            nGHIHOCLabel.Size = new System.Drawing.Size(64, 13);
-            nGHIHOCLabel.TabIndex = 18;
-            nGHIHOCLabel.Text = "NGHỈ HỌC :";
+            mALOPLabel.Size = new System.Drawing.Size(45, 13);
+            mALOPLabel.TabIndex = 24;
+            mALOPLabel.Text = "Mã lớp :";
             // 
             // bdsToanSV
             // 
@@ -258,6 +176,8 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.LOPTableAdapter = null;
+            this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLDSV.QLDSVDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // barManager2
@@ -292,8 +212,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnXoa, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnSua, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLuuSQL, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPhucHoi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnChuyenLop, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPhucHoi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.barSinhVien.OptionsBar.MultiLine = true;
             this.barSinhVien.OptionsBar.UseWholeRow = true;
             this.barSinhVien.Text = "Main menu";
@@ -341,15 +260,7 @@
             this.btnPhucHoi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPhucHoi.ImageOptions.Image")));
             this.btnPhucHoi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPhucHoi.ImageOptions.LargeImage")));
             this.btnPhucHoi.Name = "btnPhucHoi";
-            // 
-            // btnChuyenLop
-            // 
-            this.btnChuyenLop.Caption = "Chuyển lớp";
-            this.btnChuyenLop.Id = 5;
-            this.btnChuyenLop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChuyenLop.ImageOptions.Image")));
-            this.btnChuyenLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnChuyenLop.ImageOptions.LargeImage")));
-            this.btnChuyenLop.Name = "btnChuyenLop";
-            this.btnChuyenLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChuyenLop_ItemClick);
+            this.btnPhucHoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhucHoi_ItemClick);
             // 
             // barDockControl1
             // 
@@ -388,6 +299,15 @@
             this.btnGhi.Caption = "Ghi";
             this.btnGhi.Id = 3;
             this.btnGhi.Name = "btnGhi";
+            // 
+            // btnChuyenLop
+            // 
+            this.btnChuyenLop.Caption = "Chuyển lớp";
+            this.btnChuyenLop.Id = 5;
+            this.btnChuyenLop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChuyenLop.ImageOptions.Image")));
+            this.btnChuyenLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnChuyenLop.ImageOptions.LargeImage")));
+            this.btnChuyenLop.Name = "btnChuyenLop";
+            this.btnChuyenLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChuyenLop_ItemClick);
             // 
             // sINHVIENTableAdapter
             // 
@@ -458,6 +378,7 @@
             this.colMALOP.OptionsColumn.AllowEdit = false;
             this.colMALOP.Visible = true;
             this.colMALOP.VisibleIndex = 0;
+            this.colMALOP.Width = 83;
             // 
             // colTENLOP
             // 
@@ -467,6 +388,7 @@
             this.colTENLOP.OptionsColumn.AllowEdit = false;
             this.colTENLOP.Visible = true;
             this.colTENLOP.VisibleIndex = 1;
+            this.colTENLOP.Width = 165;
             // 
             // colMAKH
             // 
@@ -476,23 +398,24 @@
             this.colMAKH.OptionsColumn.AllowEdit = false;
             this.colMAKH.Visible = true;
             this.colMAKH.VisibleIndex = 2;
+            this.colMAKH.Width = 65;
             // 
             // gcLop
             // 
             this.gcLop.DataSource = this.bdsLop;
             this.gcLop.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gcLop.Location = new System.Drawing.Point(710, 83);
+            this.gcLop.Location = new System.Drawing.Point(670, 83);
             this.gcLop.MainView = this.gridView3;
             this.gcLop.MenuManager = this.barManager2;
             this.gcLop.Name = "gcLop";
-            this.gcLop.Size = new System.Drawing.Size(300, 510);
+            this.gcLop.Size = new System.Drawing.Size(340, 510);
             this.gcLop.TabIndex = 13;
             this.gcLop.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
             // 
-            // gridView4
+            // gvSinhVien
             // 
-            this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gvSinhVien.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMASV,
             this.colHO,
             this.colTEN,
@@ -503,17 +426,15 @@
             this.colDIACHI,
             this.colGHICHU,
             this.colNGHIHOC});
-            this.gridView4.GridControl = this.gcSinhVien;
-            this.gridView4.Name = "gridView4";
-            this.gridView4.OptionsBehavior.ReadOnly = true;
-            this.gridView4.OptionsView.ShowGroupPanel = false;
+            this.gvSinhVien.GridControl = this.gcSinhVien;
+            this.gvSinhVien.Name = "gvSinhVien";
+            this.gvSinhVien.OptionsView.ShowGroupPanel = false;
             // 
             // colMASV
             // 
             this.colMASV.Caption = "MSV";
             this.colMASV.FieldName = "MASV";
             this.colMASV.Name = "colMASV";
-            this.colMASV.OptionsColumn.AllowEdit = false;
             this.colMASV.Visible = true;
             this.colMASV.VisibleIndex = 0;
             // 
@@ -522,7 +443,6 @@
             this.colHO.Caption = "Họ";
             this.colHO.FieldName = "HO";
             this.colHO.Name = "colHO";
-            this.colHO.OptionsColumn.AllowEdit = false;
             this.colHO.Visible = true;
             this.colHO.VisibleIndex = 1;
             // 
@@ -531,7 +451,6 @@
             this.colTEN.Caption = "Tên";
             this.colTEN.FieldName = "TEN";
             this.colTEN.Name = "colTEN";
-            this.colTEN.OptionsColumn.AllowEdit = false;
             this.colTEN.Visible = true;
             this.colTEN.VisibleIndex = 2;
             // 
@@ -549,7 +468,6 @@
             this.colPHAI.Caption = "Phái";
             this.colPHAI.FieldName = "PHAI";
             this.colPHAI.Name = "colPHAI";
-            this.colPHAI.OptionsColumn.AllowEdit = false;
             this.colPHAI.Visible = true;
             this.colPHAI.VisibleIndex = 4;
             // 
@@ -558,7 +476,6 @@
             this.colNGAYSINH.Caption = "Ngày sinh";
             this.colNGAYSINH.FieldName = "NGAYSINH";
             this.colNGAYSINH.Name = "colNGAYSINH";
-            this.colNGAYSINH.OptionsColumn.AllowEdit = false;
             this.colNGAYSINH.Visible = true;
             this.colNGAYSINH.VisibleIndex = 5;
             // 
@@ -567,7 +484,6 @@
             this.colNOISINH.Caption = "Nơi sinh";
             this.colNOISINH.FieldName = "NOISINH";
             this.colNOISINH.Name = "colNOISINH";
-            this.colNOISINH.OptionsColumn.AllowEdit = false;
             this.colNOISINH.Visible = true;
             this.colNOISINH.VisibleIndex = 6;
             // 
@@ -576,7 +492,6 @@
             this.colDIACHI.Caption = "Địa chỉ";
             this.colDIACHI.FieldName = "DIACHI";
             this.colDIACHI.Name = "colDIACHI";
-            this.colDIACHI.OptionsColumn.AllowEdit = false;
             this.colDIACHI.Visible = true;
             this.colDIACHI.VisibleIndex = 7;
             // 
@@ -585,7 +500,6 @@
             this.colGHICHU.Caption = "Ghi chú";
             this.colGHICHU.FieldName = "GHICHU";
             this.colGHICHU.Name = "colGHICHU";
-            this.colGHICHU.OptionsColumn.AllowEdit = false;
             this.colGHICHU.Visible = true;
             this.colGHICHU.VisibleIndex = 8;
             // 
@@ -600,165 +514,132 @@
             // 
             // gcSinhVien
             // 
+            this.gcSinhVien.ContextMenuStrip = this.contextMenuStrip1;
             this.gcSinhVien.DataSource = this.bdsSinhVien;
             this.gcSinhVien.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gcSinhVien.Location = new System.Drawing.Point(0, 376);
-            this.gcSinhVien.MainView = this.gridView4;
+            this.gcSinhVien.Location = new System.Drawing.Point(0, 367);
+            this.gcSinhVien.MainView = this.gvSinhVien;
             this.gcSinhVien.MenuManager = this.barManager2;
             this.gcSinhVien.Name = "gcSinhVien";
-            this.gcSinhVien.Size = new System.Drawing.Size(710, 217);
+            this.gcSinhVien.Size = new System.Drawing.Size(670, 226);
             this.gcSinhVien.TabIndex = 13;
             this.gcSinhVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView4});
+            this.gvSinhVien});
             // 
-            // gbSinhVien
+            // contextMenuStrip1
             // 
-            this.gbSinhVien.Controls.Add(this.btnCancel);
-            this.gbSinhVien.Controls.Add(this.btnSave);
-            this.gbSinhVien.Controls.Add(nGHIHOCLabel);
-            this.gbSinhVien.Controls.Add(this.chkNghiHoc);
-            this.gbSinhVien.Controls.Add(gHICHULabel);
-            this.gbSinhVien.Controls.Add(this.txtGhiChu);
-            this.gbSinhVien.Controls.Add(dIACHILabel);
-            this.gbSinhVien.Controls.Add(this.txtDiaChi);
-            this.gbSinhVien.Controls.Add(nOISINHLabel);
-            this.gbSinhVien.Controls.Add(this.txtNoiSinh);
-            this.gbSinhVien.Controls.Add(nGAYSINHLabel);
-            this.gbSinhVien.Controls.Add(this.dateNgaySinh);
-            this.gbSinhVien.Controls.Add(pHAILabel);
-            this.gbSinhVien.Controls.Add(this.chkPhai);
-            this.gbSinhVien.Controls.Add(mALOPLabel);
-            this.gbSinhVien.Controls.Add(this.txtMaLop);
-            this.gbSinhVien.Controls.Add(tENLabel);
-            this.gbSinhVien.Controls.Add(this.txtTen);
-            this.gbSinhVien.Controls.Add(hOLabel);
-            this.gbSinhVien.Controls.Add(this.txtHo);
-            this.gbSinhVien.Controls.Add(mASVLabel);
-            this.gbSinhVien.Controls.Add(this.txtMaSinhVien);
-            this.gbSinhVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbSinhVien.Location = new System.Drawing.Point(0, 83);
-            this.gbSinhVien.Name = "gbSinhVien";
-            this.gbSinhVien.Size = new System.Drawing.Size(710, 293);
-            this.gbSinhVien.TabIndex = 18;
-            this.gbSinhVien.TabStop = false;
-            this.gbSinhVien.Text = "Nhập liệu";
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsThem,
+            this.tsXoa,
+            this.tsLuu,
+            this.tsPhucHoi,
+            this.tsChuyenLop});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 136);
+            // 
+            // tsThem
+            // 
+            this.tsThem.Name = "tsThem";
+            this.tsThem.Size = new System.Drawing.Size(180, 22);
+            this.tsThem.Text = "Thêm";
+            this.tsThem.Click += new System.EventHandler(this.tsThem_Click);
+            // 
+            // tsXoa
+            // 
+            this.tsXoa.Name = "tsXoa";
+            this.tsXoa.Size = new System.Drawing.Size(180, 22);
+            this.tsXoa.Text = "Xóa";
+            // 
+            // tsLuu
+            // 
+            this.tsLuu.Name = "tsLuu";
+            this.tsLuu.Size = new System.Drawing.Size(180, 22);
+            this.tsLuu.Text = "Lưu";
+            this.tsLuu.Click += new System.EventHandler(this.tsLuu_Click);
+            // 
+            // tsPhucHoi
+            // 
+            this.tsPhucHoi.Name = "tsPhucHoi";
+            this.tsPhucHoi.Size = new System.Drawing.Size(180, 22);
+            this.tsPhucHoi.Text = "Phục hồi";
+            this.tsPhucHoi.Click += new System.EventHandler(this.tsPhucHoi_Click);
+            // 
+            // tsChuyenLop
+            // 
+            this.tsChuyenLop.Name = "tsChuyenLop";
+            this.tsChuyenLop.Size = new System.Drawing.Size(180, 22);
+            this.tsChuyenLop.Text = "Chuyển lớp";
+            this.tsChuyenLop.Click += new System.EventHandler(this.tsChuyenLop_Click);
+            // 
+            // gbLop
+            // 
+            this.gbLop.Controls.Add(this.btnCapNhat);
+            this.gbLop.Controls.Add(mALOPLabel);
+            this.gbLop.Controls.Add(this.txtMaLop);
+            this.gbLop.Controls.Add(mAKHLabel);
+            this.gbLop.Controls.Add(this.txtMaKhoa);
+            this.gbLop.Controls.Add(tENLOPLabel);
+            this.gbLop.Controls.Add(this.txtTenLop);
+            this.gbLop.Controls.Add(this.btnCancel);
+            this.gbLop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbLop.Location = new System.Drawing.Point(0, 83);
+            this.gbLop.Name = "gbLop";
+            this.gbLop.Size = new System.Drawing.Size(670, 284);
+            this.gbLop.TabIndex = 18;
+            this.gbLop.TabStop = false;
+            this.gbLop.Text = "Nhập liệu";
+            // 
+            // lOPBindingSource
+            // 
+            this.lOPBindingSource.DataMember = "LOP";
+            this.lOPBindingSource.DataSource = this.qLDSVDataSet;
+            // 
+            // btnCapNhat
+            // 
+            this.btnCapNhat.Location = new System.Drawing.Point(545, 58);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(75, 34);
+            this.btnCapNhat.TabIndex = 26;
+            this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
+            // 
+            // txtMaLop
+            // 
+            this.txtMaLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsLop, "MALOP", true));
+            this.txtMaLop.Location = new System.Drawing.Point(120, 38);
+            this.txtMaLop.MenuManager = this.barManager2;
+            this.txtMaLop.Name = "txtMaLop";
+            this.txtMaLop.Size = new System.Drawing.Size(378, 20);
+            this.txtMaLop.TabIndex = 25;
+            // 
+            // txtMaKhoa
+            // 
+            this.txtMaKhoa.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsLop, "MAKH", true));
+            this.txtMaKhoa.Location = new System.Drawing.Point(120, 131);
+            this.txtMaKhoa.MenuManager = this.barManager2;
+            this.txtMaKhoa.Name = "txtMaKhoa";
+            this.txtMaKhoa.Size = new System.Drawing.Size(378, 20);
+            this.txtMaKhoa.TabIndex = 24;
+            // 
+            // txtTenLop
+            // 
+            this.txtTenLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsLop, "TENLOP", true));
+            this.txtTenLop.Location = new System.Drawing.Point(120, 86);
+            this.txtTenLop.MenuManager = this.barManager2;
+            this.txtTenLop.Name = "txtTenLop";
+            this.txtTenLop.Size = new System.Drawing.Size(378, 20);
+            this.txtTenLop.TabIndex = 23;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(487, 118);
+            this.btnCancel.Location = new System.Drawing.Point(545, 98);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(75, 34);
             this.btnCancel.TabIndex = 21;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(487, 76);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 20;
-            this.btnSave.Text = "Cập nhật";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // chkNghiHoc
-            // 
-            this.chkNghiHoc.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhVien, "NGHIHOC", true));
-            this.chkNghiHoc.Location = new System.Drawing.Point(288, 208);
-            this.chkNghiHoc.MenuManager = this.barManager2;
-            this.chkNghiHoc.Name = "chkNghiHoc";
-            this.chkNghiHoc.Properties.Caption = "Đã nghỉ học";
-            this.chkNghiHoc.Size = new System.Drawing.Size(75, 20);
-            this.chkNghiHoc.TabIndex = 19;
-            // 
-            // txtGhiChu
-            // 
-            this.txtGhiChu.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhVien, "GHICHU", true));
-            this.txtGhiChu.Location = new System.Drawing.Point(104, 207);
-            this.txtGhiChu.MenuManager = this.barManager2;
-            this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(100, 20);
-            this.txtGhiChu.TabIndex = 17;
-            // 
-            // txtDiaChi
-            // 
-            this.txtDiaChi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhVien, "DIACHI", true));
-            this.txtDiaChi.Location = new System.Drawing.Point(104, 163);
-            this.txtDiaChi.MenuManager = this.barManager2;
-            this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(284, 20);
-            this.txtDiaChi.TabIndex = 15;
-            // 
-            // txtNoiSinh
-            // 
-            this.txtNoiSinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhVien, "NOISINH", true));
-            this.txtNoiSinh.Location = new System.Drawing.Point(104, 127);
-            this.txtNoiSinh.MenuManager = this.barManager2;
-            this.txtNoiSinh.Name = "txtNoiSinh";
-            this.txtNoiSinh.Size = new System.Drawing.Size(100, 20);
-            this.txtNoiSinh.TabIndex = 13;
-            // 
-            // dateNgaySinh
-            // 
-            this.dateNgaySinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhVien, "NGAYSINH", true));
-            this.dateNgaySinh.EditValue = null;
-            this.dateNgaySinh.Location = new System.Drawing.Point(288, 126);
-            this.dateNgaySinh.MenuManager = this.barManager2;
-            this.dateNgaySinh.Name = "dateNgaySinh";
-            this.dateNgaySinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateNgaySinh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateNgaySinh.Size = new System.Drawing.Size(100, 20);
-            this.dateNgaySinh.TabIndex = 11;
-            // 
-            // chkPhai
-            // 
-            this.chkPhai.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhVien, "PHAI", true));
-            this.chkPhai.Location = new System.Drawing.Point(262, 93);
-            this.chkPhai.MenuManager = this.barManager2;
-            this.chkPhai.Name = "chkPhai";
-            this.chkPhai.Properties.Caption = "Nam";
-            this.chkPhai.Size = new System.Drawing.Size(75, 20);
-            this.chkPhai.TabIndex = 9;
-            // 
-            // txtMaLop
-            // 
-            this.txtMaLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhVien, "MALOP", true));
-            this.txtMaLop.Location = new System.Drawing.Point(104, 91);
-            this.txtMaLop.MenuManager = this.barManager2;
-            this.txtMaLop.Name = "txtMaLop";
-            this.txtMaLop.Size = new System.Drawing.Size(100, 20);
-            this.txtMaLop.TabIndex = 7;
-            // 
-            // txtTen
-            // 
-            this.txtTen.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhVien, "TEN", true));
-            this.txtTen.Location = new System.Drawing.Point(262, 56);
-            this.txtTen.MenuManager = this.barManager2;
-            this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(126, 20);
-            this.txtTen.TabIndex = 5;
-            // 
-            // txtHo
-            // 
-            this.txtHo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhVien, "HO", true));
-            this.txtHo.Location = new System.Drawing.Point(104, 55);
-            this.txtHo.MenuManager = this.barManager2;
-            this.txtHo.Name = "txtHo";
-            this.txtHo.Size = new System.Drawing.Size(100, 20);
-            this.txtHo.TabIndex = 3;
-            // 
-            // txtMaSinhVien
-            // 
-            this.txtMaSinhVien.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhVien, "MASV", true));
-            this.txtMaSinhVien.Location = new System.Drawing.Point(104, 19);
-            this.txtMaSinhVien.MenuManager = this.barManager2;
-            this.txtMaSinhVien.Name = "txtMaSinhVien";
-            this.txtMaSinhVien.Size = new System.Drawing.Size(284, 20);
-            this.txtMaSinhVien.TabIndex = 1;
             // 
             // bdsDiem
             // 
@@ -768,12 +649,16 @@
             // 
             this.dIEMTableAdapter.ClearBeforeFill = true;
             // 
+            // lOPTableAdapter1
+            // 
+            this.lOPTableAdapter1.ClearBeforeFill = true;
+            // 
             // frmSinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1010, 593);
-            this.Controls.Add(this.gbSinhVien);
+            this.Controls.Add(this.gbLop);
             this.Controls.Add(this.gcSinhVien);
             this.Controls.Add(this.gcLop);
             this.Controls.Add(this.panel1);
@@ -794,21 +679,15 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcLop)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSinhVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcSinhVien)).EndInit();
-            this.gbSinhVien.ResumeLayout(false);
-            this.gbSinhVien.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkNghiHoc.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNoiSinh.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgaySinh.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgaySinh.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkPhai.Properties)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.gbLop.ResumeLayout(false);
+            this.gbLop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaSinhVien.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaKhoa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDiem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -839,7 +718,7 @@
         private DSTableAdapters.LOPTableAdapter lOPTableAdapter;
         private System.Windows.Forms.BindingSource bdsSinhVien;
         private DevExpress.XtraGrid.GridControl gcSinhVien;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvSinhVien;
         private DevExpress.XtraGrid.Columns.GridColumn colMASV;
         private DevExpress.XtraGrid.Columns.GridColumn colHO;
         private DevExpress.XtraGrid.Columns.GridColumn colTEN;
@@ -857,21 +736,22 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMAKH;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cmbBoPhan;
-        private System.Windows.Forms.GroupBox gbSinhVien;
-        private DevExpress.XtraEditors.CheckEdit chkNghiHoc;
-        private DevExpress.XtraEditors.TextEdit txtGhiChu;
-        private DevExpress.XtraEditors.TextEdit txtDiaChi;
-        private DevExpress.XtraEditors.TextEdit txtNoiSinh;
-        private DevExpress.XtraEditors.DateEdit dateNgaySinh;
-        private DevExpress.XtraEditors.CheckEdit chkPhai;
-        private DevExpress.XtraEditors.TextEdit txtMaLop;
-        private DevExpress.XtraEditors.TextEdit txtTen;
-        private DevExpress.XtraEditors.TextEdit txtHo;
-        private DevExpress.XtraEditors.TextEdit txtMaSinhVien;
+        private System.Windows.Forms.GroupBox gbLop;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.BindingSource bdsDiem;
         private DSTableAdapters.DIEMTableAdapter dIEMTableAdapter;
         private DevExpress.XtraBars.BarButtonItem btnLuuSQL;
+        private DevExpress.XtraEditors.TextEdit txtMaLop;
+        private DevExpress.XtraEditors.TextEdit txtMaKhoa;
+        private DevExpress.XtraEditors.TextEdit txtTenLop;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsThem;
+        private System.Windows.Forms.ToolStripMenuItem tsXoa;
+        private System.Windows.Forms.Button btnCapNhat;
+        private System.Windows.Forms.ToolStripMenuItem tsPhucHoi;
+        private System.Windows.Forms.ToolStripMenuItem tsChuyenLop;
+        private System.Windows.Forms.ToolStripMenuItem tsLuu;
+        private System.Windows.Forms.BindingSource lOPBindingSource;
+        private QLDSVDataSetTableAdapters.LOPTableAdapter lOPTableAdapter1;
     }
 }

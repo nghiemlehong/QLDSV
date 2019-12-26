@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label tENCNLabel;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmbBoPhan = new System.Windows.Forms.ComboBox();
+            this.cmbBoPhanDN = new System.Windows.Forms.ComboBox();
             this.bdsDSPM = new System.Windows.Forms.BindingSource(this.components);
             this.qLDSVDataSet = new QLDSV.QLDSVDataSet();
             this.btnThoat = new System.Windows.Forms.Button();
@@ -59,7 +59,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cmbBoPhan);
+            this.groupBox1.Controls.Add(this.cmbBoPhanDN);
             this.groupBox1.Controls.Add(this.btnThoat);
             this.groupBox1.Controls.Add(this.btnDangNhap);
             this.groupBox1.Controls.Add(this.lbMatKhau);
@@ -75,18 +75,18 @@
             this.groupBox1.Text = "Đăng nhập";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // cmbBoPhan
+            // cmbBoPhanDN
             // 
-            this.cmbBoPhan.DataSource = this.bdsDSPM;
-            this.cmbBoPhan.DisplayMember = "TENCN";
-            this.cmbBoPhan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBoPhan.FormattingEnabled = true;
-            this.cmbBoPhan.Location = new System.Drawing.Point(133, 53);
-            this.cmbBoPhan.Name = "cmbBoPhan";
-            this.cmbBoPhan.Size = new System.Drawing.Size(261, 21);
-            this.cmbBoPhan.TabIndex = 8;
-            this.cmbBoPhan.ValueMember = "TENSERVER";
-            this.cmbBoPhan.SelectedIndexChanged += new System.EventHandler(this.cmbBoPhan_SelectedIndexChanged);
+            this.cmbBoPhanDN.DataSource = this.bdsDSPM;
+            this.cmbBoPhanDN.DisplayMember = "TENCN";
+            this.cmbBoPhanDN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBoPhanDN.FormattingEnabled = true;
+            this.cmbBoPhanDN.Location = new System.Drawing.Point(133, 53);
+            this.cmbBoPhanDN.Name = "cmbBoPhanDN";
+            this.cmbBoPhanDN.Size = new System.Drawing.Size(261, 21);
+            this.cmbBoPhanDN.TabIndex = 8;
+            this.cmbBoPhanDN.ValueMember = "TENSERVER";
+            this.cmbBoPhanDN.SelectedIndexChanged += new System.EventHandler(this.cmbBoPhan_SelectedIndexChanged);
             // 
             // bdsDSPM
             // 
@@ -193,6 +193,6 @@
         private System.Windows.Forms.TextBox txtTenDangNhap;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnDangNhap;
-        private System.Windows.Forms.ComboBox cmbBoPhan;
+        private System.Windows.Forms.ComboBox cmbBoPhanDN;
     }
 }

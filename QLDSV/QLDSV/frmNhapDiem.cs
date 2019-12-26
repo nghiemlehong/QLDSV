@@ -21,7 +21,7 @@ namespace QLDSV
         int ret = -1;
         private void cmbBoPhan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbBoPhan.SelectedIndex == 0)
+            if (cmbBoPhan.SelectedIndex ==0)
             {
                 MessageBox.Show("Login không đủ quyền truy cập!", "", MessageBoxButtons.OK);
                 cmbBoPhan.SelectedIndex = Program.mBoPhan;
