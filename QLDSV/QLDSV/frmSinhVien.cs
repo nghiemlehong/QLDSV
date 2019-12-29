@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,8 @@ namespace QLDSV
         Boolean checkAdd = false;
         Boolean kiemTraThemSV = false;
         Boolean kiemTraThayDoi = false;
+        int viTriThemSinhVien = 0;
+        public static String maSV = "";
         public frmSinhVien()
         {
             InitializeComponent();
@@ -24,11 +27,11 @@ namespace QLDSV
 
         private void frmSinhVien_Load(object sender, EventArgs e)
         {
+            Program.bds_DSPM.Filter = "TENCN LIKE 'KHOA%'";
+            
             // TODO: This line of code loads data into the 'qLDSVDataSet.LOP' table. You can move, or remove it, as needed.
             this.lOPTableAdapter1.Fill(this.qLDSVDataSet.LOP);
             // TODO: This line of code loads data into the 'dS.DIEM' table. You can move, or remove it, as needed.
-
-
 
             // TODO: This line of code loads data into the 'dS.SINHVIEN' table. You can move, or remove it, as needed.
             dS.EnforceConstraints = false;
@@ -56,7 +59,7 @@ namespace QLDSV
             {
                 cmbBoPhan.Enabled = false;
                 btnLuuSQL.Enabled = btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnChuyenLop.Enabled = false;
-                
+                gcSinhVien.Enabled= false;
 
             }
           
@@ -69,12 +72,7 @@ namespace QLDSV
 
         private void cmbBoPhan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbBoPhan.SelectedIndex == 0)
-            {
-                MessageBox.Show("Login không đủ quyền truy cập!", "", MessageBoxButtons.OK);
-                cmbBoPhan.SelectedIndex = Program.mBoPhan;
-                return;
-            }
+           
             if (Program.FrmDangNhap.Visible == false)
             {
                 if (cmbBoPhan.SelectedIndex == Program.mBoPhan)
@@ -277,36 +275,7 @@ namespace QLDSV
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
-            /*    String masv = "";
-                if (chkNghiHoc.Checked)
-                {
-                    MessageBox.Show("Sinh viên này đã nghỉ học!", "", MessageBoxButtons.OK);
-                    return;
-                }
-                if(bdsSinhVien.Count==0)
-                {
-                    MessageBox.Show("Lớp không có sinh viên để xóa!", "", MessageBoxButtons.OK);
-                    return;
-                }
-                if (MessageBox.Show("Bạn có thực sự muốn xóa Sinh viên này??", "Đánh dấu nghỉ học?", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                {
-                    try
-                    {
-                        masv = (((DataRowView)bdsSinhVien[bdsSinhVien.Position])["MASV"].ToString());
-                        chkNghiHoc.Checked = true;
-                        bdsSinhVien.EndEdit();
-
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Lỗi xóa sinh viên.\nBạn hãy xóa lại\n" + ex.Message, "", MessageBoxButtons.OK);
-                        this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
-                        bdsSinhVien.Position = bdsSinhVien.Find("MASV", masv);
-                        return;
-                    }
-                }
-                kiemTraThayDoi = true;*/
+            /*   */
 
             kiemTraThayDoi = true;
             String malop = "";
@@ -481,27 +450,120 @@ namespace QLDSV
             bdsLop.CancelEdit();
             bdsLop.Position = viTri;
             this.lOPTableAdapter.Fill(this.dS.LOP);
-          
+            this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
+
         }
 
         private void tsThem_Click(object sender, EventArgs e)
         {
+            viTri = bdsSinhVien.Position;
             bdsSinhVien.AddNew();
             tsThem.Enabled = tsXoa.Enabled = tsChuyenLop.Enabled = false;
             btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = btnLuuSQL.Enabled = btnPhucHoi.Enabled = false ;
+            Console.WriteLine(bdsSinhVien.Position);
+            ((DataRowView)bdsSinhVien[bdsSinhVien.Position])["PHAI"] = true;
+            ((DataRowView)bdsSinhVien[bdsSinhVien.Position])["NGHIHOC"] = false;
             gcLop.Enabled = false;
             kiemTraThemSV = true;
+            viTriThemSinhVien = bdsSinhVien.Position;
 
           
         }
 
         private void tsLuu_Click(object sender, EventArgs e)
         {
+           
             if(kiemTraThemSV == true)
             {
-                for(int i =0; i< bdsSinhVien.Count; i++)
+              
+                Console.WriteLine(viTriThemSinhVien);
+               
+                    if(gvSinhVien.GetRowCellValue(viTriThemSinhVien, "MASV").ToString().Trim() == "")
+                    {
+                        MessageBox.Show("Bạn chưa nhập mã sinh viên!");
+                        gvSinhVien.FocusedRowHandle = viTriThemSinhVien;
+                        return;
+                    }
+                    if (gvSinhVien.GetRowCellValue(viTriThemSinhVien, "HO").ToString().Trim() == "")
+                    {
+                        MessageBox.Show("Bạn chưa nhập họ sinh viên!");
+                        gvSinhVien.FocusedRowHandle = viTriThemSinhVien;
+                        return;
+                    }
+                    if (gvSinhVien.GetRowCellValue(viTriThemSinhVien, "TEN").ToString().Trim() == "")
+                    {
+                        MessageBox.Show("Bạn chưa nhập tên sinh viên!");
+                        gvSinhVien.FocusedRowHandle = viTriThemSinhVien;
+                        return;
+                    }
+               
+                Console.WriteLine(gvSinhVien.GetRowCellValue(viTriThemSinhVien, "MASV").ToString().Trim());
+                Console.WriteLine(bdsToanSV.Count);
+                int dem = 0;
+                for (int i = 0; i < bdsToanSV.Count; i++)//Kiểm tra sinh viên trong khoa
                 {
-                    if(gvSinhVien.GetRowCellValue(i, "MASV").ToString().Trim() == "")
+                    Console.WriteLine(((DataRowView)bdsToanSV[i])["MASV"].ToString().Trim());
+                    if (gvSinhVien.GetRowCellValue(viTriThemSinhVien, "MASV").ToString().Trim() == ((DataRowView)bdsToanSV[i])["MASV"].ToString().Trim())
+                    {
+
+                        dem++;
+                    }
+                }
+
+                if (kiemTraThemSV == true)// Thêm sinh viên mới
+                {
+                    if (dem == 2)
+                    {
+                        MessageBox.Show("Mã sinh viên bị trùng!");
+                        return;
+                    }
+                }
+                // Kiểm tra sinh viên khác khoa
+                  String strLenh =
+               " DECLARE @ret int"+
+               " EXEC dbo.sp_KiemTraSinhVien"+
+               " @masv = '"+ gvSinhVien.GetRowCellValue(viTriThemSinhVien, "MASV").ToString().Trim() + "'," +
+               " @ret = @ret OUTPUT" +
+               " SELECT @ret";
+
+                  Program.myReader = Program.ExecSqlDataReader(strLenh);
+
+                if (Program.myReader != null && Program.myReader.HasRows)
+                {
+                    while (Program.myReader.Read())
+                    {
+                        int ret = Program.myReader.GetInt32(0);
+                  
+                         if (ret == 2)// Kiểm tra trùng mã sinh viên ở khoa khác
+                        {
+                            Program.myReader.Close();
+                            MessageBox.Show("Mã lớp đã trung ở khoa khác", "Đóng");
+                            return;
+                        }
+                    }
+
+                }
+                Program.myReader.Close();
+                try
+                {
+             
+                    this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.sINHVIENTableAdapter.Update(this.dS.SINHVIEN);
+                    MessageBox.Show("Lưu dữ liệu thành công!", "", MessageBoxButtons.OK);
+                  
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi ghi sinh viên.\n" + ex.Message, "", MessageBoxButtons.OK);
+                    return;
+                }
+
+            }
+            else
+            {
+                for(int i = 0; i<bdsSinhVien.Count;i++)
+                {
+                    if (gvSinhVien.GetRowCellValue(i, "MASV").ToString().Trim() == "")
                     {
                         MessageBox.Show("Bạn chưa nhập mã sinh viên!");
                         gvSinhVien.FocusedRowHandle = i;
@@ -519,48 +581,89 @@ namespace QLDSV
                         gvSinhVien.FocusedRowHandle = i;
                         return;
                     }
+
+                    int dem = 0;
+                    for (int j = 0; j < bdsToanSV.Count; j++)//Kiểm tra sinh viên trong khoa
+                    {
+                       
+                        if (gvSinhVien.GetRowCellValue(i, "MASV").ToString().Trim() == ((DataRowView)bdsToanSV[j])["MASV"].ToString().Trim())
+                        {
+
+                            dem++;
+                        }
+                    }
+
+                  
+                        if (dem == 2)
+                        {
+                            MessageBox.Show("Mã sinh viên bị trùng!");
+                           gvSinhVien.FocusedRowHandle = i;
+                            return;
+                        }
+                    
+                    // Kiểm tra sinh viên khác khoa
+                    String strLenh =
+                 " DECLARE @ret int" +
+                 " EXEC dbo.sp_KiemTraSinhVien" +
+                 " @masv = '" + gvSinhVien.GetRowCellValue(i, "MASV").ToString().Trim() + "'," +
+                 " @ret = @ret OUTPUT" +
+                 " SELECT @ret";
+
+                    Program.myReader = Program.ExecSqlDataReader(strLenh);
+
+                    if (Program.myReader != null && Program.myReader.HasRows)
+                    {
+                        while (Program.myReader.Read())
+                        {
+                            int ret = Program.myReader.GetInt32(0);
+
+                            if (ret == 2)// Kiểm tra trùng mã sinh viên ở khoa khác
+                            {
+                                Program.myReader.Close();
+                                MessageBox.Show("Mã sinh viên đã trùng ở khoa khác !!", "Đóng");
+                                return;
+                            }
+                        }
+
+                    }
+                    Program.myReader.Close();
                 }
-                int dem = 0;
-                for (int i = 0; i < bdsToanSV.Count; i++)
+
+                try
                 {
 
-                    if (gvSinhVien.GetRowCellValue(i, "MASV").ToString().Trim() == ((DataRowView)bdsToanSV[i])["MASV"].ToString().Trim())
-                    {
-                      
-                        dem++;
-                    }
+                    this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.sINHVIENTableAdapter.Update(this.dS.SINHVIEN);
+                    MessageBox.Show("Lưu dữ liệu thành công!", "", MessageBoxButtons.OK);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi ghi sinh viên.\n" + ex.Message, "", MessageBoxButtons.OK);
+                    return;
                 }
 
-                if (kiemTraThemSV == true)// Thêm sinh viên mới
-                {
-                    if (dem == 1)
-                    {
-                        MessageBox.Show("Mã sinh viên bị trùng!");
-                        
-                        return;
-                    }
-                }
-                else // Sửa sinh viên
-                {
-                    if (dem == 2)
-                    {
-                        MessageBox.Show("Mã sinh viên bị trùng!");
-                        
-                        return;
-                    }
-                }
+
+
+
+
 
             }
-            else
-            {
-
-            }
+            //Thuộc tính các nút quay về như cũ
+            tsThem.Enabled = tsXoa.Enabled = tsChuyenLop.Enabled = true;
+            btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = btnLuuSQL.Enabled = btnPhucHoi.Enabled = true;
+            gcLop.Enabled = true;
+            kiemTraThemSV = false;
+            kiemTraThayDoi = false;
         }
 
         private void tsChuyenLop_Click(object sender, EventArgs e)
         {
-            String maSV= ((DataRowView)bdsSinhVien[bdsSinhVien.Position])["MASV"].ToString();
-            Console.WriteLine(maSV);
+            viTri = bdsSinhVien.Position;
+            bdsSinhVien.CancelEdit();
+            this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
+            bdsSinhVien.Position = viTri;
+            maSV = ((DataRowView)bdsSinhVien[viTri])["MASV"].ToString();
             frmChuyenLop frmChuyen = new frmChuyenLop(maSV);
             frmChuyen.Show();
         }
@@ -571,8 +674,45 @@ namespace QLDSV
             this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
             tsThem.Enabled = tsXoa.Enabled = tsChuyenLop.Enabled = true;
             btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = btnLuuSQL.Enabled = btnPhucHoi.Enabled = true;
+            bdsSinhVien.Position = viTri;
             gcLop.Enabled = true;
             kiemTraThemSV = false ;
+           
+        }
+
+        private void tsXoa_Click(object sender, EventArgs e)
+        {
+            String masv = "";
+           
+            if (((DataRowView)bdsSinhVien[bdsSinhVien.Position])["MASV"].ToString() == "True")
+            {
+                MessageBox.Show("Sinh viên này đã nghỉ học!", "", MessageBoxButtons.OK);
+                return;
+            }
+            if (bdsSinhVien.Count == 0)
+            {
+                MessageBox.Show("Lớp không có sinh viên để xóa!", "", MessageBoxButtons.OK);
+                return;
+            }
+            if (MessageBox.Show("Bạn có thực sự muốn xóa Sinh viên này??", "Đánh dấu nghỉ học?", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                try
+                {
+                    masv = (((DataRowView)bdsSinhVien[bdsSinhVien.Position])["MASV"].ToString());
+                    ((DataRowView)bdsSinhVien[bdsSinhVien.Position])["NGHIHOC"] = true;
+                    bdsSinhVien.EndEdit();
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi xóa sinh viên.\nBạn hãy xóa lại\n" + ex.Message, "", MessageBoxButtons.OK);
+                    this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
+                    bdsSinhVien.Position = bdsSinhVien.Find("MASV", masv);
+                    return;
+                }
+            }
+          
         }
     }
 }

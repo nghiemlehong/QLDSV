@@ -21,12 +21,7 @@ namespace QLDSV
         int ret = -1;
         private void cmbBoPhan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbBoPhan.SelectedIndex ==0)
-            {
-                MessageBox.Show("Login không đủ quyền truy cập!", "", MessageBoxButtons.OK);
-                cmbBoPhan.SelectedIndex = Program.mBoPhan;
-                return;
-            }
+           
             if (Program.FrmDangNhap.Visible == false)
             {
                 if (cmbBoPhan.SelectedIndex == Program.mBoPhan)
@@ -72,6 +67,7 @@ namespace QLDSV
 
         private void frmNhapDiem_Load(object sender, EventArgs e)
         {
+            Program.bds_DSPM.Filter = "TENCN LIKE 'KHOA%'";
             // TODO: This line of code loads data into the 'dS.SINHVIEN' table. You can move, or remove it, as needed.
             dS.EnforceConstraints = false;
             this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -229,7 +225,8 @@ namespace QLDSV
         {
             for(int i =0; i<bdsSinhVien.Count;i++)
             {
-            //    float diem = float.Parse(gvNhapDiem.GetRowCellValue(i,"DIEM").ToString().Trim());
+                
+                //    float diem = float.Parse(gvNhapDiem.GetRowCellValue(i,"DIEM").ToString().Trim());
                 if (gvNhapDiem.GetRowCellValue(i, "DIEM").ToString().Trim() == "")
                 {
                     MessageBox.Show("Bạn chưa nhập điểm cho sinh viên này!\n" + "Mã SV: " + gvNhapDiem.GetRowCellValue(i, "MASV").ToString().Trim());

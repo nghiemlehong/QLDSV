@@ -19,6 +19,7 @@ namespace QLDSV
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            rbNhapLieu.Visible = rbInAn.Visible =  rbDangXuat.Visible = false;
 
         }
         private Form CheckExists(Type ftype)
@@ -32,9 +33,12 @@ namespace QLDSV
         private void btnDangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             dangXuat = true;
-            Program.FrmDangNhap.Visible = true;
-            Program.bds_DSPM = null;
-            Program.FrmMain.Close();
+               Program.FrmMain.Hide();
+        
+            
+            Program.bds_DSPM.Filter = "TENCN LIKE '%'";
+            Program.FrmMain = new frmMain();
+            Program.FrmMain.Visible = true;
             
         }
 
@@ -128,6 +132,79 @@ namespace QLDSV
             else
             {
                 frmHocPhi f = new frmHocPhi();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnDangNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+           
+               Program.FrmDangNhap = new frmDangNhap();
+               Program.FrmDangNhap.Show();
+            
+        }
+
+        private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+           Application.Exit();
+        }
+
+        private void btnBDMH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmBangDiemMH));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmBangDiemMH f = new frmBangDiemMH();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnDSDTK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+             Form frm = this.CheckExists(typeof(frmDiemTongKet));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmDiemTongKet f = new frmDiemTongKet();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnDSHP_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmDSHocPhi));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmDSHocPhi f = new frmDSHocPhi();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnDSTHM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmDSthiHetMon));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmDSthiHetMon f = new frmDSthiHetMon();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnPD_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmPhieuDiem));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmPhieuDiem f = new frmPhieuDiem();
                 f.MdiParent = this;
                 f.Show();
             }

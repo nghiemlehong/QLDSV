@@ -52,7 +52,8 @@ namespace QLDSV
             if (Program.KetNoi() == 0) return;
             //MessageBox.Show("Thành công", "", MessageBoxButtons.OK);
 
-            Program.mBoPhan = cmbBoPhanDN.SelectedIndex;
+            Program.mBoPhan = cmbBoPhanDN.SelectedIndex - 1;
+        
             Program.bds_DSPM = bdsDSPM;
             Program.mloginDN = Program.mlogin;
             Program.passwordDN = Program.password;
@@ -78,16 +79,24 @@ namespace QLDSV
             Program.myReader.Close();
             Program.conn.Close();
 
-            Program.FrmMain = new frmMain();
-            
-            Program.FrmMain.MAGV.Text = "MÃ GIẢNG VIÊN : " + Program.username;
-            Program.FrmMain.HOTEN.Text = " ||   HỌ VÀ TÊN : " + Program.mHoten;
-            Program.FrmMain.NHOM.Text = " ||   NHÓM : " + Program.mGroup;
+          //  Program.FrmMain = new frmMain();
+            Program.FrmMain.MAGV.Text = "Mã giảng viên : " + Program.username;
+            Program.FrmMain.HOTEN.Text = " ||   Họ và tên : " + Program.mHoten;
+            Program.FrmMain.NHOM.Text = " ||   Nhóm : " + Program.mGroup;
 
-            Program.FrmMain.Show();
-            Program.FrmDangNhap.Visible = false;
-            
+            //  Program.FrmMain.Show();
+            Program.FrmDangNhap.Hide();
+            Program.FrmMain.rbNhapLieu.Visible = Program.FrmMain.rbInAn.Visible  = Program.FrmMain.rbDangXuat.Visible = true;
+            Program.FrmMain.rbDangNhap.Visible = false;
+            if(Program.mGroup == "PGV" || Program.mGroup == "KHOA")
+            {
+                Program.FrmMain.rbPhongKeToan.Visible = false ;
+            }
+            else
+            {
+                Program.FrmMain.rbKhoa.Visible = false;
 
+            }
 
 
         }

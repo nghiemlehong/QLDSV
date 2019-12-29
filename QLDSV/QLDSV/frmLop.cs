@@ -24,27 +24,8 @@ namespace QLDSV
 
         private void cmbBoPhan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbBoPhan.SelectedIndex == 0  )
-            {
-                MessageBox.Show("Login không đủ quyền truy cập!", "", MessageBoxButtons.OK);
-                cmbBoPhan.SelectedIndex = Program.mBoPhan;
-                return;
-            }
-           /* if (MessageBox.Show("Bạn có muốn lưu lại vào cơ sở dữ liệu không?", "Xác nhận.", MessageBoxButtons.OKCancel) == DialogResult.OK)
-            {
-                try
-                {
-                    //bdsLop.ResetCurrentItem();
-                    this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.lOPTableAdapter.Update(this.dS.LOP);
-                    MessageBox.Show("Lưu dữ liệu thành công!", "", MessageBoxButtons.OK);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi ghi lớp.\n" + ex.Message, "", MessageBoxButtons.OK);
-                    return;
-                }
-            }*/
+        
+            
                 if (Program.FrmDangNhap.Visible == false)
             {
                 if(cmbBoPhan.SelectedIndex == Program.mBoPhan)
@@ -108,6 +89,7 @@ namespace QLDSV
             // TODO: This line of code loads data into the 'dS.SINHVIEN' table. You can move, or remove it, as needed.
             // this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
             // TODO: This line of code loads data into the 'dS.LOP' table. You can move, or remove it, as needed.
+            Program.bds_DSPM.Filter = "TENCN LIKE 'KHOA%'";
             dS.EnforceConstraints = false;
             this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.lOPTableAdapter.Fill(this.dS.LOP);
@@ -130,7 +112,7 @@ namespace QLDSV
             {
                 cmbBoPhan.Enabled = false;
                 btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = btnLuuSQL.Enabled = btnPhucHoi.Enabled = false;
-
+                
             }
             gbLop.Enabled = false;
             maKhoa = ((DataRowView)bdsLop[bdsLop.Position])["MAKH"].ToString();

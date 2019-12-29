@@ -84,6 +84,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmBangDiemMH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBangDiemMH.Designer.cs">
+      <DependentUpon>frmBangDiemMH.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmChuyenLop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,11 +102,29 @@
     <Compile Include="frmDangKy.Designer.cs">
       <DependentUpon>frmDangKy.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDSdiemTongKet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDSdiemTongKet.Designer.cs">
+      <DependentUpon>frmDSdiemTongKet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDSHocPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDSHocPhi.Designer.cs">
+      <DependentUpon>frmDSHocPhi.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDsSV.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDsSV.Designer.cs">
       <DependentUpon>frmDsSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDSthiHetMon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDSthiHetMon.Designer.cs">
+      <DependentUpon>frmDSthiHetMon.cs</DependentUpon>
     </Compile>
     <Compile Include="frmHocPhi.cs">
       <SubType>Form</SubType>
@@ -137,6 +161,12 @@
     </Compile>
     <Compile Include="frmNhapDiem.Designer.cs">
       <DependentUpon>frmNhapDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPhieuDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPhieuDiem.Designer.cs">
+      <DependentUpon>frmPhieuDiem.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSinhVien.cs">
       <SubType>Form</SubType>
@@ -183,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNhapDiem.resx">
       <DependentUpon>frmNhapDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPhieuDiem.resx">
+      <DependentUpon>frmPhieuDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSinhVien.resx">
       <DependentUpon>frmSinhVien.cs</DependentUpon>

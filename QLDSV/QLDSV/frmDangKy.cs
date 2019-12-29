@@ -29,19 +29,40 @@ namespace QLDSV
 
         private void frmDangKy_Load(object sender, EventArgs e)
         {
+            
             DS.EnforceConstraints = false;
             this.gIANGVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             this.gIANGVIENTableAdapter.Fill(this.DS.GIANGVIEN);
-
+            Program.bds_DSPM.Filter = "TENCN LIKE '%'";
             cmbBoPhan.DataSource = Program.bds_DSPM;
             cmbBoPhan.DisplayMember = "TENCN";
             cmbBoPhan.ValueMember = "TENSERVER";
-            cmbBoPhan.SelectedIndex = Program.mBoPhan;
 
+           // Fix lỗi cmb 
+            if(Program.mBoPhan == 2)
+            cmbBoPhan.SelectedIndex = Program.mBoPhan;
+            else
+            {
+                cmbBoPhan.SelectedIndex = Program.mBoPhan + 1;
+            }
+
+            //Phân quyền cho từng bộ phận đăng ký thêm tài khoản
             if (Program.mGroup == "PGV")
             {
                 cmbBoPhan.Enabled = true;
                 rd1.Checked = true;
+                if(cmbBoPhan.SelectedIndex == 0 )
+                {
+                    rd1.Enabled = rd2.Enabled = false;
+                    rd3.Enabled = true;
+                    rd3.Checked = true;
+                }
+                else if(cmbBoPhan.SelectedIndex == 1 || cmbBoPhan.SelectedIndex == 2 )
+                {
+                    rd1.Enabled = rd2.Enabled = true;
+                    rd3.Enabled = false;
+                    rd1.Checked = true;
+                }
             }
             else
             {
@@ -56,12 +77,7 @@ namespace QLDSV
 
         private void CmbBoPhan_SelectedIndexChanged(object sender, EventArgs e)
         {
-           /* if (Program.mGroup == "PKETOAN")
-            {
-                //MessageBox.Show("Login không đủ quyền truy cập!", "", MessageBoxButtons.OK);
-                cmbBoPhan.SelectedIndex = Program.mBoPhan;
-                return;
-            }*/
+         
             if (Program.FrmDangNhap.Visible == false)
             {
                 if (cmbBoPhan.SelectedIndex == Program.mBoPhan)
@@ -95,6 +111,23 @@ namespace QLDSV
 
                     }
                 }
+                if (Program.mGroup == "PGV")
+                {
+                    cmbBoPhan.Enabled = true;
+                    rd1.Checked = true;
+                    if (cmbBoPhan.SelectedIndex == 0)
+                    {
+                        rd1.Enabled = rd2.Enabled = false;
+                        rd3.Enabled = true;
+                        rd3.Checked = true;
+                    }
+                    else if (cmbBoPhan.SelectedIndex == 1 || cmbBoPhan.SelectedIndex == 2)
+                    {
+                        rd1.Enabled = rd2.Enabled = true;
+                        rd3.Enabled = false;
+                        rd1.Checked = true;
+                    }
+                }
             }
         }
 
@@ -116,7 +149,7 @@ namespace QLDSV
             if (rd1.Checked == true) nhom = "PGV"; else if (rd2.Checked == true) nhom = "KHOA"; else nhom = "PKETOAN";
             String strLenh = "EXEC SP_TaoTaiKhoan '" + txtNamDN.Text.Trim() + "','" + txtPass.Text.Trim() + "','" + txtGV.Text.Trim() + "','" + nhom + "'" ;
 
-            try
+           /* try
             {
                 SqlDataReader sqlRead = Program.ExecSqlDataReader(strLenh);
                 if (sqlRead != null)
@@ -129,7 +162,40 @@ namespace QLDSV
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }*/
+            String strLenh1 =
+                "DECLARE @return_value int "+
+                "EXEC    @return_value = [dbo].[sp_TaoTaiKhoan] "+
+                "@LGNAME = N'"+txtNamDN.Text.Trim()+"', "+
+		        "@PASS = N'"+txtPass.Text.Trim()+"', "+
+		        "@USERNAME = N'"+txtGV.Text.Trim() +"', "+
+		        "@ROLE = N'"+nhom+"' " +
+                "SELECT  'Return Value' = @return_value";
+            Program.myReader = Program.ExecSqlDataReader(strLenh1);
+            if (Program.myReader != null && Program.myReader.HasRows)
+            {
+                try
+                {
+                    while (Program.myReader.Read())
+                    {
+                        int ret = Program.myReader.GetInt32(0);
+                        if(ret == 0)
+                        {
+                            MessageBox.Show("Đăng ký thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
             }
+            if (Program.myReader != null)
+            Program.myReader.Close();
+
         }
 
         private void BtnDangKy_Click(object sender, EventArgs e)

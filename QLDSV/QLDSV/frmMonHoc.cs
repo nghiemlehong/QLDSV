@@ -38,6 +38,18 @@ namespace QLDSV
             this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
             this.mONHOCTableAdapter.Fill(this.DS.MONHOC);
             gbMonHoc.Enabled = false;
+            if (Program.mGroup == "PGV")
+            {
+               
+                btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = btnLuuSQL.Enabled = btnPhucHoi.Enabled = true;
+
+            }
+            else
+            {
+                
+                btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = btnLuuSQL.Enabled = btnPhucHoi.Enabled = false;
+
+            }
 
         }
 

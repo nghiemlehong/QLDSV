@@ -21,12 +21,6 @@ namespace QLDSV
 
         private void CmbBoPhan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbBoPhan.SelectedIndex == 0)
-            {
-                MessageBox.Show("Login không đủ quyền truy cập!", "", MessageBoxButtons.OK);
-                cmbBoPhan.SelectedIndex = Program.mBoPhan;
-                return;
-            }
             if (Program.FrmDangNhap.Visible == false)
             {
                 if (cmbBoPhan.SelectedIndex == Program.mBoPhan)
@@ -71,6 +65,7 @@ namespace QLDSV
 
         private void FrmDsSV_Load(object sender, EventArgs e)
         {
+            Program.bds_DSPM.Filter = "TENCN LIKE 'KHOA%'";
             // TODO: This line of code loads data into the 'dS.LOP' table. You can move, or remove it, as needed.
             dS.EnforceConstraints = false;
             this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;

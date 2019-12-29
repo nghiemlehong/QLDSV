@@ -33,6 +33,7 @@ namespace QLDSV
         public static String mGroup = "";
         public static String mHoten = "";
         public static int mBoPhan = 0;
+        public static String mBoPhanLC = "";
 
         public static BindingSource bds_DSPM = new BindingSource();  // giữ bdsPM khi đăng nhập
         public static frmMain FrmMain;
@@ -99,8 +100,8 @@ namespace QLDSV
             Application.SetCompatibleTextRenderingDefault(false);
 
             BonusSkins.Register();
-            FrmDangNhap = new frmDangNhap();
-            Application.Run(FrmDangNhap);
+            FrmMain = new frmMain();
+            Application.Run(FrmMain);
         }
     }
 }

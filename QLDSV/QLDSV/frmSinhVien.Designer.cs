@@ -83,12 +83,12 @@
             this.tsPhucHoi = new System.Windows.Forms.ToolStripMenuItem();
             this.tsChuyenLop = new System.Windows.Forms.ToolStripMenuItem();
             this.gbLop = new System.Windows.Forms.GroupBox();
-            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
             this.txtMaKhoa = new DevExpress.XtraEditors.TextEdit();
             this.txtTenLop = new DevExpress.XtraEditors.TextEdit();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bdsDiem = new System.Windows.Forms.BindingSource(this.components);
             this.dIEMTableAdapter = new QLDSV.DSTableAdapters.DIEMTableAdapter();
             this.lOPTableAdapter1 = new QLDSV.QLDSVDataSetTableAdapters.LOPTableAdapter();
@@ -109,10 +109,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcSinhVien)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.gbLop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDiem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -549,6 +549,7 @@
             this.tsXoa.Name = "tsXoa";
             this.tsXoa.Size = new System.Drawing.Size(180, 22);
             this.tsXoa.Text = "Xóa";
+            this.tsXoa.Click += new System.EventHandler(this.tsXoa_Click);
             // 
             // tsLuu
             // 
@@ -588,11 +589,6 @@
             this.gbLop.TabIndex = 18;
             this.gbLop.TabStop = false;
             this.gbLop.Text = "Nhập liệu";
-            // 
-            // lOPBindingSource
-            // 
-            this.lOPBindingSource.DataMember = "LOP";
-            this.lOPBindingSource.DataSource = this.qLDSVDataSet;
             // 
             // btnCapNhat
             // 
@@ -641,6 +637,11 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // lOPBindingSource
+            // 
+            this.lOPBindingSource.DataMember = "LOP";
+            this.lOPBindingSource.DataSource = this.qLDSVDataSet;
+            // 
             // bdsDiem
             // 
             this.bdsDiem.DataSource = this.bdsSinhVien;
@@ -684,10 +685,10 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.gbLop.ResumeLayout(false);
             this.gbLop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKhoa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDiem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
