@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
 
 namespace QLDSV
 {
@@ -20,6 +21,9 @@ namespace QLDSV
 
         private void frmDSHocPhi_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dS1.LOP' table. You can move, or remove it, as needed.
+            this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.lOPTableAdapter.Fill(this.dS1.LOP);
             IDictionary<int, string> dict = new Dictionary<int, string>();
             dict.Add(1, "1");
             dict.Add(2, "2");
@@ -40,7 +44,19 @@ namespace QLDSV
 
             cmbNienKhoa.DataSource = new BindingSource(dict1, null);
             cmbNienKhoa.DisplayMember = "Value";
-            cmbNienKhoa.ValueMember = "Key";
+            cmbNienKhoa.ValueMember = "Value";
+        }
+
+        private void btnReview_Click(object sender, EventArgs e)
+        {
+            ReportHocPhi reportHP = new ReportHocPhi(cmbMaLop.SelectedValue.ToString(), cmbNienKhoa.SelectedValue.ToString(), cmbHocKy.SelectedIndex + 1);
+            reportHP.xrLabelLop.Text = "lớp: " + tENLOPTextEdit.Text;
+            reportHP.xrLabelNienKhoa.Text = "Niên khoa: " + cmbNienKhoa.SelectedValue.ToString();
+            reportHP.xrLabelHocki.Text = "Học kì: " + cmbHocKy.SelectedValue.ToString();
+            reportHP.xrLabelInfoNgTao.Text = "Mã giảng viên : " + Program.username + " ||   Họ và tên : " + Program.mHoten + " ||   Nhóm : " + Program.mGroup;
+
+            ReportPrintTool print = new ReportPrintTool(reportHP);
+            print.ShowPreviewDialog();
         }
     }
 }

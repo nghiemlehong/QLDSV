@@ -195,3 +195,8 @@ E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\ob
 E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\obj\Debug\QLDSV.frmHocPhi.resources
 E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\obj\Debug\QLDSV.frmDsSV.resources
 E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\obj\Debug\QLDSV.frmPhieuDiem.resources
+E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\obj\Debug\QLDSV.frmDSHocPhi.resources
+E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\obj\Debug\QLDSV.ReportHocPhi.resources
+E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\obj\Debug\QLDSV.ReportPhieuDiem.resources
+E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\obj\Debug\QLDSV.frmBangDiemMH.resources
+E:\Tai Lieu + Giao Trinh\Co so du lieu phan tan\CoSoDuLieuPhanTan\QLDSV\QLDSV\obj\Debug\QLDSV.ReportDiemMH.resources

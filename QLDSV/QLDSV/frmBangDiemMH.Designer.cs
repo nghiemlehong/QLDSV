@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label tENCNLabel;
-            System.Windows.Forms.Label mALOPLabel;
-            System.Windows.Forms.Label tENLOPLabel;
-            System.Windows.Forms.Label tENMHLabel;
-            System.Windows.Forms.Label mAMHLabel;
+            this.tENCNLabel = new System.Windows.Forms.Label();
+            this.mALOPLabel = new System.Windows.Forms.Label();
+            this.tENLOPLabel = new System.Windows.Forms.Label();
+            this.tENMHLabel = new System.Windows.Forms.Label();
+            this.mAMHLabel = new System.Windows.Forms.Label();
             this.btnReview = new System.Windows.Forms.Button();
             this.cmbBoPhan = new System.Windows.Forms.ComboBox();
             this.mALOPTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.tENLOPComboBox = new System.Windows.Forms.ComboBox();
             this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dS = new QLDSV.DS();
+            this.tENLOPComboBox = new System.Windows.Forms.ComboBox();
             this.lOPTableAdapter = new QLDSV.DSTableAdapters.LOPTableAdapter();
             this.mONHOCBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mONHOCTableAdapter = new QLDSV.DSTableAdapters.MONHOCTableAdapter();
@@ -48,11 +48,6 @@
             this.mAMHTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.cmbLanThi = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            tENCNLabel = new System.Windows.Forms.Label();
-            mALOPLabel = new System.Windows.Forms.Label();
-            tENLOPLabel = new System.Windows.Forms.Label();
-            tENMHLabel = new System.Windows.Forms.Label();
-            mAMHLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.mALOPTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
@@ -62,38 +57,62 @@
             // 
             // tENCNLabel
             // 
-            tENCNLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            tENCNLabel.AutoSize = true;
-            tENCNLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tENCNLabel.Location = new System.Drawing.Point(150, 27);
-            tENCNLabel.Name = "tENCNLabel";
-            tENCNLabel.Size = new System.Drawing.Size(69, 17);
-            tENCNLabel.TabIndex = 25;
-            tENCNLabel.Text = "Bộ phận :";
+            this.tENCNLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tENCNLabel.AutoSize = true;
+            this.tENCNLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tENCNLabel.Location = new System.Drawing.Point(150, 27);
+            this.tENCNLabel.Name = "tENCNLabel";
+            this.tENCNLabel.Size = new System.Drawing.Size(69, 17);
+            this.tENCNLabel.TabIndex = 25;
+            this.tENCNLabel.Text = "Bộ phận :";
             // 
             // mALOPLabel
             // 
-            mALOPLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            mALOPLabel.AutoSize = true;
-            mALOPLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mALOPLabel.ForeColor = System.Drawing.Color.Black;
-            mALOPLabel.Location = new System.Drawing.Point(456, 66);
-            mALOPLabel.Name = "mALOPLabel";
-            mALOPLabel.Size = new System.Drawing.Size(50, 13);
-            mALOPLabel.TabIndex = 27;
-            mALOPLabel.Text = "Mã lớp :";
+            this.mALOPLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mALOPLabel.AutoSize = true;
+            this.mALOPLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mALOPLabel.ForeColor = System.Drawing.Color.Black;
+            this.mALOPLabel.Location = new System.Drawing.Point(456, 66);
+            this.mALOPLabel.Name = "mALOPLabel";
+            this.mALOPLabel.Size = new System.Drawing.Size(50, 13);
+            this.mALOPLabel.TabIndex = 27;
+            this.mALOPLabel.Text = "Mã lớp :";
             // 
             // tENLOPLabel
             // 
-            tENLOPLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            tENLOPLabel.AutoSize = true;
-            tENLOPLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tENLOPLabel.ForeColor = System.Drawing.Color.Black;
-            tENLOPLabel.Location = new System.Drawing.Point(121, 66);
-            tENLOPLabel.Name = "tENLOPLabel";
-            tENLOPLabel.Size = new System.Drawing.Size(54, 13);
-            tENLOPLabel.TabIndex = 26;
-            tENLOPLabel.Text = "Tên lớp :";
+            this.tENLOPLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tENLOPLabel.AutoSize = true;
+            this.tENLOPLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tENLOPLabel.ForeColor = System.Drawing.Color.Black;
+            this.tENLOPLabel.Location = new System.Drawing.Point(121, 66);
+            this.tENLOPLabel.Name = "tENLOPLabel";
+            this.tENLOPLabel.Size = new System.Drawing.Size(54, 13);
+            this.tENLOPLabel.TabIndex = 26;
+            this.tENLOPLabel.Text = "Tên lớp :";
+            // 
+            // tENMHLabel
+            // 
+            this.tENMHLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tENMHLabel.AutoSize = true;
+            this.tENMHLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tENMHLabel.ForeColor = System.Drawing.Color.Black;
+            this.tENMHLabel.Location = new System.Drawing.Point(121, 105);
+            this.tENMHLabel.Name = "tENMHLabel";
+            this.tENMHLabel.Size = new System.Drawing.Size(62, 13);
+            this.tENMHLabel.TabIndex = 30;
+            this.tENMHLabel.Text = "Tên môn :";
+            // 
+            // mAMHLabel
+            // 
+            this.mAMHLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mAMHLabel.AutoSize = true;
+            this.mAMHLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mAMHLabel.ForeColor = System.Drawing.Color.Black;
+            this.mAMHLabel.Location = new System.Drawing.Point(456, 105);
+            this.mAMHLabel.Name = "mAMHLabel";
+            this.mAMHLabel.Size = new System.Drawing.Size(58, 13);
+            this.mAMHLabel.TabIndex = 31;
+            this.mAMHLabel.Text = "Mã môn :";
             // 
             // btnReview
             // 
@@ -106,6 +125,7 @@
             this.btnReview.TabIndex = 30;
             this.btnReview.Text = "Review";
             this.btnReview.UseVisualStyleBackColor = true;
+            this.btnReview.Click += new System.EventHandler(this.btnReview_Click);
             // 
             // cmbBoPhan
             // 
@@ -133,6 +153,16 @@
             this.mALOPTextEdit.Size = new System.Drawing.Size(120, 20);
             this.mALOPTextEdit.TabIndex = 29;
             // 
+            // lOPBindingSource
+            // 
+            this.lOPBindingSource.DataMember = "LOP";
+            this.lOPBindingSource.DataSource = this.dS;
+            // 
+            // dS
+            // 
+            this.dS.DataSetName = "DS";
+            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tENLOPComboBox
             // 
             this.tENLOPComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -145,16 +175,6 @@
             this.tENLOPComboBox.Size = new System.Drawing.Size(258, 21);
             this.tENLOPComboBox.TabIndex = 28;
             this.tENLOPComboBox.ValueMember = "TENLOP";
-            // 
-            // lOPBindingSource
-            // 
-            this.lOPBindingSource.DataMember = "LOP";
-            this.lOPBindingSource.DataSource = this.dS;
-            // 
-            // dS
-            // 
-            this.dS.DataSetName = "DS";
-            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lOPTableAdapter
             // 
@@ -180,22 +200,9 @@
             this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLDSV.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // tENMHLabel
-            // 
-            tENMHLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            tENMHLabel.AutoSize = true;
-            tENMHLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tENMHLabel.ForeColor = System.Drawing.Color.Black;
-            tENMHLabel.Location = new System.Drawing.Point(121, 105);
-            tENMHLabel.Name = "tENMHLabel";
-            tENMHLabel.Size = new System.Drawing.Size(62, 13);
-            tENMHLabel.TabIndex = 30;
-            tENMHLabel.Text = "Tên môn :";
-            // 
             // tENMHComboBox
             // 
             this.tENMHComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tENMHComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mONHOCBindingSource, "TENMH", true));
             this.tENMHComboBox.DataSource = this.mONHOCBindingSource;
             this.tENMHComboBox.DisplayMember = "TENMH";
             this.tENMHComboBox.FormattingEnabled = true;
@@ -204,18 +211,6 @@
             this.tENMHComboBox.Size = new System.Drawing.Size(258, 21);
             this.tENMHComboBox.TabIndex = 31;
             this.tENMHComboBox.ValueMember = "TENMH";
-            // 
-            // mAMHLabel
-            // 
-            mAMHLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            mAMHLabel.AutoSize = true;
-            mAMHLabel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mAMHLabel.ForeColor = System.Drawing.Color.Black;
-            mAMHLabel.Location = new System.Drawing.Point(456, 105);
-            mAMHLabel.Name = "mAMHLabel";
-            mAMHLabel.Size = new System.Drawing.Size(58, 13);
-            mAMHLabel.TabIndex = 31;
-            mAMHLabel.Text = "Mã môn :";
             // 
             // mAMHTextEdit
             // 
@@ -259,17 +254,17 @@
             this.ClientSize = new System.Drawing.Size(766, 187);
             this.Controls.Add(this.cmbLanThi);
             this.Controls.Add(this.label2);
-            this.Controls.Add(mAMHLabel);
+            this.Controls.Add(this.mAMHLabel);
             this.Controls.Add(this.mAMHTextEdit);
-            this.Controls.Add(tENMHLabel);
+            this.Controls.Add(this.tENMHLabel);
             this.Controls.Add(this.tENMHComboBox);
             this.Controls.Add(this.btnReview);
-            this.Controls.Add(tENCNLabel);
-            this.Controls.Add(mALOPLabel);
+            this.Controls.Add(this.tENCNLabel);
+            this.Controls.Add(this.mALOPLabel);
             this.Controls.Add(this.cmbBoPhan);
             this.Controls.Add(this.mALOPTextEdit);
             this.Controls.Add(this.tENLOPComboBox);
-            this.Controls.Add(tENLOPLabel);
+            this.Controls.Add(this.tENLOPLabel);
             this.Name = "frmBangDiemMH";
             this.Text = "Bảng điểm môn học";
             this.Load += new System.EventHandler(this.frmBangDiemMH_Load);
@@ -299,5 +294,10 @@
         private DevExpress.XtraEditors.TextEdit mAMHTextEdit;
         private System.Windows.Forms.ComboBox cmbLanThi;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label tENCNLabel;
+        private System.Windows.Forms.Label mALOPLabel;
+        private System.Windows.Forms.Label tENLOPLabel;
+        private System.Windows.Forms.Label tENMHLabel;
+        private System.Windows.Forms.Label mAMHLabel;
     }
 }

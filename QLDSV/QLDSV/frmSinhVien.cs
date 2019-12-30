@@ -659,10 +659,16 @@ namespace QLDSV
 
         private void tsChuyenLop_Click(object sender, EventArgs e)
         {
+           
             viTri = bdsSinhVien.Position;
             bdsSinhVien.CancelEdit();
             this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
             bdsSinhVien.Position = viTri;
+            if(((DataRowView)bdsSinhVien[viTri])["NGHIHOC"].ToString() == "True")
+            {
+                MessageBox.Show("Sinh viên đã nghỉ học hoặc chuyển lớp !");
+                return;
+            }
             maSV = ((DataRowView)bdsSinhVien[viTri])["MASV"].ToString();
             frmChuyenLop frmChuyen = new frmChuyenLop(maSV);
             frmChuyen.Show();

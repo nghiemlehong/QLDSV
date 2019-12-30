@@ -91,11 +91,12 @@ namespace QLDSV
             if(Program.mGroup == "PGV" || Program.mGroup == "KHOA")
             {
                 Program.FrmMain.rbPhongKeToan.Visible = false ;
+                Program.FrmMain.rbDSHP.Visible = false;
             }
             else
             {
                 Program.FrmMain.rbKhoa.Visible = false;
-
+                Program.FrmMain.rbDSSV.Visible = false;
             }
 
 

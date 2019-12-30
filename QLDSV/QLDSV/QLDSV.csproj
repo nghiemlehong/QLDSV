@@ -184,14 +184,38 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDSVDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ReportDiemMH.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportDiemMH.Designer.cs">
+      <DependentUpon>ReportDiemMH.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportDSSV.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ReportDSSV.Designer.cs">
       <DependentUpon>ReportDSSV.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportHocPhi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportHocPhi.Designer.cs">
+      <DependentUpon>ReportHocPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPhieuDiem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportPhieuDiem.Designer.cs">
+      <DependentUpon>ReportPhieuDiem.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmBangDiemMH.resx">
+      <DependentUpon>frmBangDiemMH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmChuyenLop.resx">
       <DependentUpon>frmChuyenLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDSHocPhi.resx">
+      <DependentUpon>frmDSHocPhi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDsSV.resx">
       <DependentUpon>frmDsSV.cs</DependentUpon>
@@ -230,8 +254,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportDiemMH.resx">
+      <DependentUpon>ReportDiemMH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportDSSV.resx">
       <DependentUpon>ReportDSSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportHocPhi.resx">
+      <DependentUpon>ReportHocPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPhieuDiem.resx">
+      <DependentUpon>ReportPhieuDiem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="DS.xsc">

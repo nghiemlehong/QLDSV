@@ -57,7 +57,7 @@
             this.rbPhongKeToan = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbInAn = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbDSSV = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rbDSHP = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.MAGV = new System.Windows.Forms.ToolStripStatusLabel();
             this.HOTEN = new System.Windows.Forms.ToolStripStatusLabel();
@@ -174,6 +174,7 @@
             // 
             this.btnDanhSachSinhVien.Caption = "Danh sách sinh viên";
             this.btnDanhSachSinhVien.Id = 1;
+            this.btnDanhSachSinhVien.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDanhSachSinhVien.ImageOptions.SvgImage")));
             this.btnDanhSachSinhVien.Name = "btnDanhSachSinhVien";
             this.btnDanhSachSinhVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanhSachSinhVien_ItemClick);
             // 
@@ -197,6 +198,7 @@
             // 
             this.btnBDMH.Caption = "Bảng điểm môn học";
             this.btnBDMH.Id = 5;
+            this.btnBDMH.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnBDMH.ImageOptions.SvgImage")));
             this.btnBDMH.Name = "btnBDMH";
             this.btnBDMH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBDMH_ItemClick);
             // 
@@ -204,6 +206,7 @@
             // 
             this.btnDSDTK.Caption = "Danh sách điểm tổng kết";
             this.btnDSDTK.Id = 6;
+            this.btnDSDTK.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDSDTK.ImageOptions.SvgImage")));
             this.btnDSDTK.Name = "btnDSDTK";
             this.btnDSDTK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSDTK_ItemClick);
             // 
@@ -211,6 +214,7 @@
             // 
             this.btnDSHP.Caption = "Dánh sách học phí";
             this.btnDSHP.Id = 7;
+            this.btnDSHP.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDSHP.ImageOptions.SvgImage")));
             this.btnDSHP.Name = "btnDSHP";
             this.btnDSHP.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSHP_ItemClick);
             // 
@@ -218,6 +222,7 @@
             // 
             this.btnDSTHM.Caption = "Danh sách thi hết môn";
             this.btnDSTHM.Id = 8;
+            this.btnDSTHM.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDSTHM.ImageOptions.SvgImage")));
             this.btnDSTHM.Name = "btnDSTHM";
             this.btnDSTHM.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSTHM_ItemClick);
             // 
@@ -225,6 +230,7 @@
             // 
             this.btnPD.Caption = "Phiếu điểm";
             this.btnPD.Id = 9;
+            this.btnPD.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPD.ImageOptions.SvgImage")));
             this.btnPD.Name = "btnPD";
             this.btnPD.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPD_ItemClick);
             // 
@@ -269,17 +275,19 @@
             this.rbKhoa.ItemLinks.Add(this.btnMon);
             this.rbKhoa.ItemLinks.Add(this.btnNhapDiem);
             this.rbKhoa.Name = "rbKhoa";
+            this.rbKhoa.Text = "Khoa";
             // 
             // rbPhongKeToan
             // 
             this.rbPhongKeToan.ItemLinks.Add(this.btnHocPhi);
             this.rbPhongKeToan.Name = "rbPhongKeToan";
+            this.rbPhongKeToan.Text = "Kế toán";
             // 
             // rbInAn
             // 
             this.rbInAn.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rbDSSV,
-            this.ribbonPageGroup2});
+            this.rbDSHP});
             this.rbInAn.Name = "rbInAn";
             this.rbInAn.Text = "In ấn";
             // 
@@ -291,12 +299,13 @@
             this.rbDSSV.ItemLinks.Add(this.btnDSTHM);
             this.rbDSSV.ItemLinks.Add(this.btnPD);
             this.rbDSSV.Name = "rbDSSV";
+            this.rbDSSV.Text = "Khoa";
             // 
-            // ribbonPageGroup2
+            // rbDSHP
             // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnDSHP);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
+            this.rbDSHP.ItemLinks.Add(this.btnDSHP);
+            this.rbDSHP.Name = "rbDSHP";
+            this.rbDSHP.Text = "Kế toán";
             // 
             // statusStrip1
             // 
@@ -387,7 +396,7 @@
         private DevExpress.XtraBars.BarButtonItem btnDSHP;
         private DevExpress.XtraBars.BarButtonItem btnDSTHM;
         private DevExpress.XtraBars.BarButtonItem btnPD;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        public DevExpress.XtraBars.Ribbon.RibbonPageGroup rbDSHP;
     }
 }
 

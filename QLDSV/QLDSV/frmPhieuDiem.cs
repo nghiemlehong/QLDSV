@@ -9,11 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraReports.UI;
 
 namespace QLDSV
 {
     public partial class frmPhieuDiem : DevExpress.XtraEditors.XtraForm
     {
+
+        int viTri = 0;
         public frmPhieuDiem()
         {
             InitializeComponent();
@@ -107,8 +110,15 @@ namespace QLDSV
                     {
                         if (gvData.GetRowCellValue(foundIndex, "NGHIHOC").ToString() == false.ToString())
                         {
-                            //code xử lý in báo cáo
-                            MessageBox.Show(txtSearch.Text, "Thông báo", MessageBoxButtons.OK);
+                            ReportPhieuDiem reportPD = new ReportPhieuDiem(txtSearch.Text);
+                            reportPD.LOP.Text = "Mã lớp: " + gvData.GetRowCellValue(foundIndex, "MALOP").ToString();
+                            reportPD.xrMaSV.Text = "Mã sinh vien: " + txtSearch.Text;
+                            reportPD.xrHoTen.Text = "Họ và tên: " + gvData.GetRowCellValue(foundIndex, "HO").ToString()+" "+ gvData.GetRowCellValue(foundIndex, "TEN").ToString();
+                            reportPD.xrLabelInfoNgTao.Text = "Mã giảng viên : " + Program.username + " ||   Họ và tên : " + Program.mHoten + " ||   Nhóm : " + Program.mGroup;
+
+                            ReportPrintTool print = new ReportPrintTool(reportPD);
+                            print.ShowPreviewDialog();
+
                         }
                         else
                         {
@@ -122,5 +132,9 @@ namespace QLDSV
                 MessageBox.Show(ex.Message);
             }
         }
+
+      
+
+       
     }
 }

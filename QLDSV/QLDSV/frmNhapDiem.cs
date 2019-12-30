@@ -225,24 +225,31 @@ namespace QLDSV
         {
             for(int i =0; i<bdsSinhVien.Count;i++)
             {
-                
-                //    float diem = float.Parse(gvNhapDiem.GetRowCellValue(i,"DIEM").ToString().Trim());
-                if (gvNhapDiem.GetRowCellValue(i, "DIEM").ToString().Trim() == "")
+                try
                 {
-                    MessageBox.Show("Bạn chưa nhập điểm cho sinh viên này!\n" + "Mã SV: " + gvNhapDiem.GetRowCellValue(i, "MASV").ToString().Trim());
-                    gvNhapDiem.FocusedRowHandle = i;
-                    return;
+                    //    float diem = float.Parse(gvNhapDiem.GetRowCellValue(i,"DIEM").ToString().Trim());
+                    if (gvNhapDiem.GetRowCellValue(i, "DIEM").ToString().Trim() == "")
+                    {
+                        MessageBox.Show("Bạn chưa nhập điểm cho sinh viên này!\n" + "Mã SV: " + gvNhapDiem.GetRowCellValue(i, "MASV").ToString().Trim());
+                        gvNhapDiem.FocusedRowHandle = i;
+                        return;
+                    }
+                    if (float.Parse(gvNhapDiem.GetRowCellValue(i, "DIEM").ToString().Trim()) > 10)
+                    {
+                        MessageBox.Show("Điểm không được lớn hơn 10!\n" + "Mã SV: " + gvNhapDiem.GetRowCellValue(i, "MASV").ToString().Trim());
+                        gvNhapDiem.FocusedRowHandle = i;
+                        return;
+                    }
+                    if (float.Parse(gvNhapDiem.GetRowCellValue(i, "DIEM").ToString().Trim()) < 0)
+                    {
+                        MessageBox.Show("Điểm phải lớn hơn hoặc bằng 0!\n" + "Mã SV: " + gvNhapDiem.GetRowCellValue(i, "MASV").ToString().Trim());
+                        gvNhapDiem.FocusedRowHandle = i;
+                        return;
+                    }
                 }
-                if (float.Parse(gvNhapDiem.GetRowCellValue(i, "DIEM").ToString().Trim()) > 10)
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Điểm không được lớn hơn 10!\n" + "Mã SV: " + gvNhapDiem.GetRowCellValue(i, "MASV").ToString().Trim());
-                    gvNhapDiem.FocusedRowHandle = i;
-                    return;
-                }
-                if (float.Parse(gvNhapDiem.GetRowCellValue(i, "DIEM").ToString().Trim()) < 0)
-                {
-                    MessageBox.Show("Điểm phải lớn hơn hoặc bằng 0!\n" + "Mã SV: " + gvNhapDiem.GetRowCellValue(i, "MASV").ToString().Trim());
-                    gvNhapDiem.FocusedRowHandle = i;
+                    MessageBox.Show("Lỗi : " + ex.Message, "Thông báo");
                     return;
                 }
             }

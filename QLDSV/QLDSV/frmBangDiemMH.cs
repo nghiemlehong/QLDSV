@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
 
 namespace QLDSV
 {
@@ -87,6 +88,18 @@ namespace QLDSV
             cmbLanThi.DataSource = new BindingSource(dict, null);
             cmbLanThi.DisplayMember = "Value";
             cmbLanThi.ValueMember = "Key";
+        }
+
+        private void btnReview_Click(object sender, EventArgs e)
+        {
+            ReportDiemMH reportD = new ReportDiemMH(mALOPTextEdit.Text, mAMHTextEdit.Text, cmbLanThi.SelectedIndex+1);
+            reportD.xrLop.Text = "Lớp: " + tENLOPComboBox.SelectedValue.ToString();          
+            reportD.xrMonHoc.Text = "Môn học: " + tENMHComboBox.SelectedValue.ToString();
+            reportD.xrLanthi.Text = "Lần thi: " + cmbLanThi.SelectedValue.ToString();
+            reportD.xrLabelInfoNgTao.Text = "Mã giảng viên : " + Program.username + " ||   Họ và tên : " + Program.mHoten + " ||   Nhóm : " + Program.mGroup;
+
+            ReportPrintTool print = new ReportPrintTool(reportD);
+            print.ShowPreviewDialog();
         }
     }
     
