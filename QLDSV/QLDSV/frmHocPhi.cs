@@ -186,6 +186,12 @@ namespace QLDSV
                 txtTienDaDong.Focus();
                 return;
             }
+            if( int.Parse(txtTienDaDong.Text) > int.Parse(txtHocPhi.Text))
+            {
+                MessageBox.Show("Tiền đã đóng phải nhỏ hơn học phí ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTienDaDong.Focus();
+                return;
+            }
             try
             {
                 int hp = int.Parse(txtHocPhi.Text);

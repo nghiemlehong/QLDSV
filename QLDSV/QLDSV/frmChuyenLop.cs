@@ -35,26 +35,14 @@ namespace QLDSV
             // TODO: This line of code loads data into the 'qLDSVDataSet.LOP' table. You can move, or remove it, as needed.
             this.lOPTableAdapter.Fill(this.qLDSVDataSet.LOP);
             Console.WriteLine(maSVChuyenLop);
+            
+
 
         }
 
         private void btnChuyenLop_Click(object sender, EventArgs e)
         {
-            if(txtMaSVMoi.Text.Trim() == "")
-            {
-                MessageBox.Show("Bạn chưa nhập mã sinh viên mới ! ");
-                return;
-            }
-            for (int i = 0; i < bdsSinhVien.Count; i++)
-            {
-
-                if (txtMaSVMoi.Text.Trim() == ((DataRowView)bdsSinhVien[i])["MASV"].ToString().Trim())
-                {
-                    MessageBox.Show("Mã sinh viên đã tồn tại !");
-                    return;
-                   
-                }
-            }
+         
 
             SqlCommand command;
             SqlDataReader dataReader;
@@ -97,13 +85,13 @@ namespace QLDSV
                     MALOP = (String)command.ExecuteScalar();
                 }
                 catch { }
-                MessageBox.Show(MALOP);
+             
                 
                 if (MALOP != null) // TODO : Chuyển Lớp Cùng Khoa
                 {
                     //MessageBox.Show("LỚP TỒN TẠI Ở SITE HIỆN TẠI");
                     // TODO : Cập nhập mã lớp cho sinh viên ở chính site hiện tại
-                    strLenh = "Update SINHVIEN SET MALOP='" + txtMaLopChuyen.Text.Trim() + "' WHERE MASV='" + txtMaSVMoi.Text.Trim() + "'";
+                    strLenh = "Update SINHVIEN SET MALOP='" + txtMaLopChuyen.Text.Trim() + "' WHERE MASV='" + sinhvien.getMASV() + "'";
                     command = new SqlCommand(strLenh, connection);
                     adapter.UpdateCommand = new SqlCommand(strLenh, connection);
                     adapter.UpdateCommand.ExecuteNonQuery();
@@ -112,6 +100,22 @@ namespace QLDSV
                 }
                 else // Lên site chủ tìm mã lớp 
                 {
+                   
+                    if (txtMaSVMoi.Text.Trim() == "")
+                    {
+                        MessageBox.Show("Bạn chưa nhập mã sinh viên mới ! ");
+                        return;
+                    }
+                    for (int i = 0; i < bdsSinhVien.Count; i++)
+                    {
+
+                        if (txtMaSVMoi.Text.Trim() == ((DataRowView)bdsSinhVien[i])["MASV"].ToString().Trim())
+                        {
+                            MessageBox.Show("Mã sinh viên đã tồn tại !");
+                            return;
+
+                        }
+                    }
                     strLenh = "SELECT MALOP FROM LINK0.QLDSV.dbo.LOP WHERE MALOP = '" + txtMaLopChuyen.Text.Trim() + "'";// giả sử D16CQVT1 là mã lớp chuyển tới
                     command = new SqlCommand(strLenh, connection);
                     command.CommandType = CommandType.Text;

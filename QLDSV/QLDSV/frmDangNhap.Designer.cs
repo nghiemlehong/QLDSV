@@ -51,7 +51,7 @@
             // tENCNLabel
             // 
             tENCNLabel.AutoSize = true;
-            tENCNLabel.Location = new System.Drawing.Point(125, 119);
+            tENCNLabel.Location = new System.Drawing.Point(38, 34);
             tENCNLabel.Name = "tENCNLabel";
             tENCNLabel.Size = new System.Drawing.Size(74, 13);
             tENCNLabel.TabIndex = 0;
@@ -69,7 +69,7 @@
             this.groupBox1.Controls.Add(tENCNLabel);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(658, 372);
+            this.groupBox1.Size = new System.Drawing.Size(427, 203);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Đăng nhập";
@@ -81,7 +81,7 @@
             this.cmbBoPhanDN.DisplayMember = "TENCN";
             this.cmbBoPhanDN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBoPhanDN.FormattingEnabled = true;
-            this.cmbBoPhanDN.Location = new System.Drawing.Point(215, 116);
+            this.cmbBoPhanDN.Location = new System.Drawing.Point(128, 31);
             this.cmbBoPhanDN.Name = "cmbBoPhanDN";
             this.cmbBoPhanDN.Size = new System.Drawing.Size(261, 21);
             this.cmbBoPhanDN.TabIndex = 8;
@@ -100,7 +100,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(355, 224);
+            this.btnThoat.Location = new System.Drawing.Point(268, 139);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(89, 34);
             this.btnThoat.TabIndex = 7;
@@ -110,7 +110,7 @@
             // 
             // btnDangNhap
             // 
-            this.btnDangNhap.Location = new System.Drawing.Point(244, 224);
+            this.btnDangNhap.Location = new System.Drawing.Point(157, 139);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(89, 34);
             this.btnDangNhap.TabIndex = 6;
@@ -121,7 +121,7 @@
             // lbMatKhau
             // 
             this.lbMatKhau.AutoSize = true;
-            this.lbMatKhau.Location = new System.Drawing.Point(125, 185);
+            this.lbMatKhau.Location = new System.Drawing.Point(38, 100);
             this.lbMatKhau.Name = "lbMatKhau";
             this.lbMatKhau.Size = new System.Drawing.Size(58, 13);
             this.lbMatKhau.TabIndex = 5;
@@ -131,7 +131,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(125, 152);
+            this.label1.Location = new System.Drawing.Point(38, 67);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 13);
             this.label1.TabIndex = 4;
@@ -139,7 +139,7 @@
             // 
             // txtMatKhau
             // 
-            this.txtMatKhau.Location = new System.Drawing.Point(215, 183);
+            this.txtMatKhau.Location = new System.Drawing.Point(128, 98);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(261, 21);
@@ -147,7 +147,7 @@
             // 
             // txtTenDangNhap
             // 
-            this.txtTenDangNhap.Location = new System.Drawing.Point(215, 150);
+            this.txtTenDangNhap.Location = new System.Drawing.Point(128, 65);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(261, 21);
             this.txtTenDangNhap.TabIndex = 2;
@@ -169,9 +169,10 @@
             this.AcceptButton = this.btnDangNhap;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 396);
+            this.ClientSize = new System.Drawing.Size(451, 227);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmDangNhap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập ";
             this.Load += new System.EventHandler(this.frmDangNhap_Load);
             this.groupBox1.ResumeLayout(false);

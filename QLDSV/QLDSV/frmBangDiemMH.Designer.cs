@@ -168,6 +168,7 @@
             this.tENLOPComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tENLOPComboBox.DataSource = this.lOPBindingSource;
             this.tENLOPComboBox.DisplayMember = "TENLOP";
+            this.tENLOPComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tENLOPComboBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tENLOPComboBox.FormattingEnabled = true;
             this.tENLOPComboBox.Location = new System.Drawing.Point(190, 63);
@@ -205,6 +206,7 @@
             this.tENMHComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tENMHComboBox.DataSource = this.mONHOCBindingSource;
             this.tENMHComboBox.DisplayMember = "TENMH";
+            this.tENMHComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tENMHComboBox.FormattingEnabled = true;
             this.tENMHComboBox.Location = new System.Drawing.Point(190, 102);
             this.tENMHComboBox.Name = "tENMHComboBox";
@@ -229,6 +231,7 @@
             // cmbLanThi
             // 
             this.cmbLanThi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbLanThi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLanThi.FormattingEnabled = true;
             this.cmbLanThi.Location = new System.Drawing.Point(327, 139);
             this.cmbLanThi.Name = "cmbLanThi";

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
 
 namespace QLDSV
 {
@@ -77,6 +78,15 @@ namespace QLDSV
                     }
                 }
             }
+        }
+
+        private void btnReview_Click(object sender, EventArgs e)
+        {
+            ReportBangDiemTongKet1 reportBDTK = new ReportBangDiemTongKet1(mALOPTextEdit.Text);
+            reportBDTK.xrLop.Text = "Lớp: " + tENLOPComboBox.SelectedValue.ToString();
+            reportBDTK.xrLabelInfoNgTao.Text = "Mã giảng viên : " + Program.username + " ||   Họ và tên : " + Program.mHoten + " ||   Nhóm : " + Program.mGroup;
+            ReportPrintTool print = new ReportPrintTool(reportBDTK);
+            print.ShowPreviewDialog();
         }
     }
 }

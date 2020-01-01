@@ -13,6 +13,7 @@ namespace QLDSV
             InitializeComponent();
             qldsvDataSet1.EnforceConstraints = false;
             sp_DsDongHocPhi_ReportTableAdapter.Fill(qldsvDataSet1.sp_DsDongHocPhi_Report, maLop, nienKhoa, hocKy);
+            xrLabelTongSV.Text = "Tổng số sinh viên: " + qldsvDataSet1.sp_DsDongHocPhi_Report.Count.ToString();
         }
     }
 }

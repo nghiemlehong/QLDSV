@@ -29,28 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label tENLOPLabel;
             this.cmbNienKhoa = new System.Windows.Forms.ComboBox();
             this.cmbHocKy = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbMaLop = new System.Windows.Forms.ComboBox();
-            this.btnReview = new System.Windows.Forms.Button();
             this.dS1 = new QLDSV.DS1();
-            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lOPTableAdapter = new QLDSV.DS1TableAdapters.LOPTableAdapter();
-            this.tableAdapterManager = new QLDSV.DS1TableAdapters.TableAdapterManager();
-            this.tENLOPTextEdit = new DevExpress.XtraEditors.TextEdit();
-            tENLOPLabel = new System.Windows.Forms.Label();
+            this.btnReview = new System.Windows.Forms.Button();
+            this.qLDSVDataSet = new QLDSV.QLDSVDataSet();
+            this.v_SISOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.v_SISOTableAdapter = new QLDSV.QLDSVDataSetTableAdapters.v_SISOTableAdapter();
+            this.tableAdapterManager1 = new QLDSV.QLDSVDataSetTableAdapters.TableAdapterManager();
+            this.cmbLop = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dS1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tENLOPTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLDSVDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.v_SISOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbNienKhoa
             // 
             this.cmbNienKhoa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbNienKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNienKhoa.FormattingEnabled = true;
             this.cmbNienKhoa.Location = new System.Drawing.Point(392, 21);
             this.cmbNienKhoa.Name = "cmbNienKhoa";
@@ -60,6 +59,7 @@
             // cmbHocKy
             // 
             this.cmbHocKy.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbHocKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHocKy.FormattingEnabled = true;
             this.cmbHocKy.Location = new System.Drawing.Point(153, 64);
             this.cmbHocKy.Name = "cmbHocKy";
@@ -102,17 +102,10 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Mã Lớp :";
             // 
-            // cmbMaLop
+            // dS1
             // 
-            this.cmbMaLop.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cmbMaLop.DataSource = this.lOPBindingSource;
-            this.cmbMaLop.DisplayMember = "MALOP";
-            this.cmbMaLop.FormattingEnabled = true;
-            this.cmbMaLop.Location = new System.Drawing.Point(153, 21);
-            this.cmbMaLop.Name = "cmbMaLop";
-            this.cmbMaLop.Size = new System.Drawing.Size(113, 21);
-            this.cmbMaLop.TabIndex = 19;
-            this.cmbMaLop.ValueMember = "MALOP";
+            this.dS1.DataSetName = "DS1";
+            this.dS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnReview
             // 
@@ -125,66 +118,59 @@
             this.btnReview.UseVisualStyleBackColor = true;
             this.btnReview.Click += new System.EventHandler(this.btnReview_Click);
             // 
-            // dS1
+            // qLDSVDataSet
             // 
-            this.dS1.DataSetName = "DS1";
-            this.dS1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.qLDSVDataSet.DataSetName = "QLDSVDataSet";
+            this.qLDSVDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // lOPBindingSource
+            // v_SISOBindingSource
             // 
-            this.lOPBindingSource.DataMember = "LOP";
-            this.lOPBindingSource.DataSource = this.dS1;
+            this.v_SISOBindingSource.DataMember = "v_SISO";
+            this.v_SISOBindingSource.DataSource = this.qLDSVDataSet;
             // 
-            // lOPTableAdapter
+            // v_SISOTableAdapter
             // 
-            this.lOPTableAdapter.ClearBeforeFill = true;
+            this.v_SISOTableAdapter.ClearBeforeFill = true;
             // 
-            // tableAdapterManager
+            // tableAdapterManager1
             // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.GIANGVIENTableAdapter = null;
-            this.tableAdapterManager.HOCPHITableAdapter = null;
-            this.tableAdapterManager.LOPTableAdapter = this.lOPTableAdapter;
-            this.tableAdapterManager.SINHVIENTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = QLDSV.DS1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.Connection = null;
+            this.tableAdapterManager1.LOPTableAdapter = null;
+            this.tableAdapterManager1.SINHVIENTableAdapter = null;
+            this.tableAdapterManager1.UpdateOrder = QLDSV.QLDSVDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // tENLOPLabel
+            // cmbLop
             // 
-            tENLOPLabel.AutoSize = true;
-            tENLOPLabel.Location = new System.Drawing.Point(47, 54);
-            tENLOPLabel.Name = "tENLOPLabel";
-            tENLOPLabel.Size = new System.Drawing.Size(0, 13);
-            tENLOPLabel.TabIndex = 20;
-            // 
-            // tENLOPTextEdit
-            // 
-            this.tENLOPTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lOPBindingSource, "TENLOP", true));
-            this.tENLOPTextEdit.Location = new System.Drawing.Point(153, 22);
-            this.tENLOPTextEdit.Name = "tENLOPTextEdit";
-            this.tENLOPTextEdit.Size = new System.Drawing.Size(100, 20);
-            this.tENLOPTextEdit.TabIndex = 21;
-            this.tENLOPTextEdit.Visible = false;
+            this.cmbLop.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbLop.DataSource = this.v_SISOBindingSource;
+            this.cmbLop.DisplayMember = "MALOP";
+            this.cmbLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLop.FormattingEnabled = true;
+            this.cmbLop.Location = new System.Drawing.Point(153, 21);
+            this.cmbLop.Name = "cmbLop";
+            this.cmbLop.Size = new System.Drawing.Size(113, 21);
+            this.cmbLop.TabIndex = 22;
+            this.cmbLop.ValueMember = "MALOP";
             // 
             // frmDSHocPhi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(582, 107);
-            this.Controls.Add(tENLOPLabel);
+            this.Controls.Add(this.cmbLop);
             this.Controls.Add(this.btnReview);
-            this.Controls.Add(this.cmbMaLop);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbNienKhoa);
             this.Controls.Add(this.cmbHocKy);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.tENLOPTextEdit);
             this.Name = "frmDSHocPhi";
             this.Text = "Danh sách học phí";
             this.Load += new System.EventHandler(this.frmDSHocPhi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dS1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tENLOPTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLDSVDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.v_SISOBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,12 +183,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbMaLop;
         private System.Windows.Forms.Button btnReview;
         private DS1 dS1;
-        private System.Windows.Forms.BindingSource lOPBindingSource;
-        private DS1TableAdapters.LOPTableAdapter lOPTableAdapter;
-        private DS1TableAdapters.TableAdapterManager tableAdapterManager;
-        private DevExpress.XtraEditors.TextEdit tENLOPTextEdit;
+        private QLDSVDataSet qLDSVDataSet;
+        private System.Windows.Forms.BindingSource v_SISOBindingSource;
+        private QLDSVDataSetTableAdapters.v_SISOTableAdapter v_SISOTableAdapter;
+        private QLDSVDataSetTableAdapters.TableAdapterManager tableAdapterManager1;
+        private System.Windows.Forms.ComboBox cmbLop;
     }
 }

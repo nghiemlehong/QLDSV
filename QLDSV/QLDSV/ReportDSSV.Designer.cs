@@ -68,6 +68,9 @@
             this.tableCell14 = new DevExpress.XtraReports.UI.XRTableCell();
             this.qldsvDataSet1 = new QLDSV.QLDSVDataSet();
             this.sp_GetInfoSV_ReportTableAdapter = new QLDSV.QLDSVDataSetTableAdapters.sp_GetInfoSV_ReportTableAdapter();
+            this.xrLabelInfoNgTao = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qldsvDataSet1)).BeginInit();
@@ -140,18 +143,22 @@
             // 
             // TopMargin
             // 
+            this.TopMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel1,
+            this.xrLabel2});
             this.TopMargin.Name = "TopMargin";
             // 
             // BottomMargin
             // 
             this.BottomMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabelInfoNgTao,
             this.pageInfo1,
             this.pageInfo2});
             this.BottomMargin.Name = "BottomMargin";
             // 
             // pageInfo1
             // 
-            this.pageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(6F, 6F);
+            this.pageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 47.66668F);
             this.pageInfo1.Name = "pageInfo1";
             this.pageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
             this.pageInfo1.SizeF = new System.Drawing.SizeF(313F, 23F);
@@ -159,7 +166,7 @@
             // 
             // pageInfo2
             // 
-            this.pageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(331F, 6F);
+            this.pageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(325F, 47.66668F);
             this.pageInfo2.Name = "pageInfo2";
             this.pageInfo2.SizeF = new System.Drawing.SizeF(313F, 23F);
             this.pageInfo2.StyleName = "PageInfo";
@@ -251,42 +258,42 @@
             // 
             this.tableCell2.Name = "tableCell2";
             this.tableCell2.StyleName = "DetailCaption1";
-            this.tableCell2.Text = "HO";
+            this.tableCell2.Text = "Họ";
             this.tableCell2.Weight = 0.14772209423298274D;
             // 
             // tableCell3
             // 
             this.tableCell3.Name = "tableCell3";
             this.tableCell3.StyleName = "DetailCaption1";
-            this.tableCell3.Text = "TEN";
+            this.tableCell3.Text = "Tên";
             this.tableCell3.Weight = 0.084675620415743391D;
             // 
             // tableCell4
             // 
             this.tableCell4.Name = "tableCell4";
             this.tableCell4.StyleName = "DetailCaption1";
-            this.tableCell4.Text = "PHAI";
+            this.tableCell4.Text = "Phái";
             this.tableCell4.Weight = 0.0771372846644774D;
             // 
             // tableCell5
             // 
             this.tableCell5.Name = "tableCell5";
             this.tableCell5.StyleName = "DetailCaption1";
-            this.tableCell5.Text = "NGAYSINH";
+            this.tableCell5.Text = "Ngày sinh";
             this.tableCell5.Weight = 0.16622531334088744D;
             // 
             // tableCell6
             // 
             this.tableCell6.Name = "tableCell6";
             this.tableCell6.StyleName = "DetailCaption1";
-            this.tableCell6.Text = "NOISINH";
+            this.tableCell6.Text = "Nơi sinh";
             this.tableCell6.Weight = 0.18755353502503225D;
             // 
             // tableCell7
             // 
             this.tableCell7.Name = "tableCell7";
             this.tableCell7.StyleName = "DetailCaption1";
-            this.tableCell7.Text = "DIACHI";
+            this.tableCell7.Text = "Địa chỉ";
             this.tableCell7.Weight = 0.2590190640662075D;
             // 
             // Detail
@@ -387,6 +394,45 @@
             // 
             this.sp_GetInfoSV_ReportTableAdapter.ClearBeforeFill = true;
             // 
+            // xrLabelInfoNgTao
+            // 
+            this.xrLabelInfoNgTao.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
+            this.xrLabelInfoNgTao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(80)))));
+            this.xrLabelInfoNgTao.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10.00001F);
+            this.xrLabelInfoNgTao.Multiline = true;
+            this.xrLabelInfoNgTao.Name = "xrLabelInfoNgTao";
+            this.xrLabelInfoNgTao.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabelInfoNgTao.SizeF = new System.Drawing.SizeF(650F, 23F);
+            this.xrLabelInfoNgTao.StylePriority.UseFont = false;
+            this.xrLabelInfoNgTao.StylePriority.UseForeColor = false;
+            this.xrLabelInfoNgTao.StylePriority.UseTextAlignment = false;
+            this.xrLabelInfoNgTao.Text = "xrLabel1";
+            this.xrLabelInfoNgTao.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // xrLabel1
+            // 
+            this.xrLabel1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(5.999979F, 10.00001F);
+            this.xrLabel1.Name = "xrLabel1";
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(332.7917F, 24.19433F);
+            this.xrLabel1.StyleName = "Title";
+            this.xrLabel1.StylePriority.UseFont = false;
+            this.xrLabel1.StylePriority.UseTextAlignment = false;
+            this.xrLabel1.Text = "HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG";
+            this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // xrLabel2
+            // 
+            this.xrLabel2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(6F, 39.19434F);
+            this.xrLabel2.Name = "xrLabel2";
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(332.7917F, 24.19433F);
+            this.xrLabel2.StyleName = "Title";
+            this.xrLabel2.StylePriority.UseFont = false;
+            this.xrLabel2.StylePriority.UseTextAlignment = false;
+            this.xrLabel2.Text = "TRUNG TÂM ĐÀO TẠO BC -VT II";
+            this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
             // ReportDSSV
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -454,5 +500,8 @@
         private QLDSVDataSetTableAdapters.sp_GetInfoSV_ReportTableAdapter sp_GetInfoSV_ReportTableAdapter;
         public DevExpress.XtraReports.UI.XRLabel xrMaLop;
         public DevExpress.XtraReports.UI.XRLabel xrTenLop;
+        public DevExpress.XtraReports.UI.XRLabel xrLabelInfoNgTao;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel1;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel2;
     }
 }

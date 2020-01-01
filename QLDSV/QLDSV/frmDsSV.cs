@@ -94,7 +94,7 @@ namespace QLDSV
                 ReportDSSV reportDSSV = new ReportDSSV(mALOPTextEdit.Text);
                 reportDSSV.xrMaLop.Text = "Mã lớp: " + mALOPTextEdit.Text;
                 reportDSSV.xrTenLop.Text = "Lớp: " + tENLOPComboBox.SelectedValue.ToString();
-
+                reportDSSV.xrLabelInfoNgTao.Text = "Mã giảng viên : " + Program.username + " ||   Họ và tên : " + Program.mHoten + " ||   Nhóm : " + Program.mGroup;
                 ReportPrintTool print = new ReportPrintTool(reportDSSV);
                 print.ShowPreviewDialog();
             

@@ -184,6 +184,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDSVDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ReportBangDiemTongKet1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportBangDiemTongKet1.Designer.cs">
+      <DependentUpon>ReportBangDiemTongKet1.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReportDiemMH.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -208,17 +214,29 @@
     <Compile Include="ReportPhieuDiem.Designer.cs">
       <DependentUpon>ReportPhieuDiem.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportThiHetMon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportThiHetMon.Designer.cs">
+      <DependentUpon>ReportThiHetMon.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmBangDiemMH.resx">
       <DependentUpon>frmBangDiemMH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmChuyenLop.resx">
       <DependentUpon>frmChuyenLop.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDSdiemTongKet.resx">
+      <DependentUpon>frmDSdiemTongKet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDSHocPhi.resx">
       <DependentUpon>frmDSHocPhi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDsSV.resx">
       <DependentUpon>frmDsSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDSthiHetMon.resx">
+      <DependentUpon>frmDSthiHetMon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHocPhi.resx">
       <DependentUpon>frmHocPhi.cs</DependentUpon>
@@ -254,6 +272,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportBangDiemTongKet1.resx">
+      <DependentUpon>ReportBangDiemTongKet1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReportDiemMH.resx">
       <DependentUpon>ReportDiemMH.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportPhieuDiem.resx">
       <DependentUpon>ReportPhieuDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportThiHetMon.resx">
+      <DependentUpon>ReportThiHetMon.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="DS.xsc">

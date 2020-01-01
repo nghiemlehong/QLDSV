@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label mALOPLabel;
             System.Windows.Forms.Label tENLOPLabel;
-            System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label labelMSVM;
             this.qLDSVDataSet = new QLDSV.QLDSVDataSet();
             this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
             this.lOPTableAdapter = new QLDSV.QLDSVDataSetTableAdapters.LOPTableAdapter();
@@ -47,7 +47,7 @@
             this.sINHVIENTableAdapter = new QLDSV.QLDSVDataSetTableAdapters.SINHVIENTableAdapter();
             mALOPLabel = new System.Windows.Forms.Label();
             tENLOPLabel = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
+            labelMSVM = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSVDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSinhVien)).BeginInit();
@@ -70,6 +70,15 @@
             tENLOPLabel.Size = new System.Drawing.Size(87, 13);
             tENLOPLabel.TabIndex = 4;
             tENLOPLabel.Text = "Tên lớp chuyển :";
+            // 
+            // labelMSVM
+            // 
+            labelMSVM.AutoSize = true;
+            labelMSVM.Location = new System.Drawing.Point(76, 128);
+            labelMSVM.Name = "labelMSVM";
+            labelMSVM.Size = new System.Drawing.Size(92, 13);
+            labelMSVM.TabIndex = 8;
+            labelMSVM.Text = "Mã sinh viên mới :";
             // 
             // qLDSVDataSet
             // 
@@ -140,15 +149,6 @@
             // 
             this.hocphiTableAdapter2.ClearBeforeFill = true;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(76, 128);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(92, 13);
-            label1.TabIndex = 8;
-            label1.Text = "Mã sinh viên mới :";
-            // 
             // txtMaSVMoi
             // 
             this.txtMaSVMoi.Location = new System.Drawing.Point(174, 125);
@@ -171,7 +171,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(674, 301);
             this.Controls.Add(this.txtMaSVMoi);
-            this.Controls.Add(label1);
+            this.Controls.Add(labelMSVM);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnChuyenLop);
             this.Controls.Add(tENLOPLabel);

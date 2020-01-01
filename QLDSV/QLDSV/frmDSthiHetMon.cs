@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
 
 namespace QLDSV
 {
@@ -65,8 +66,10 @@ namespace QLDSV
 
         private void frmDSthiHetMon_Load(object sender, EventArgs e)
         {
+           
+           
             // TODO: This line of code loads data into the 'dS.MONHOC' table. You can move, or remove it, as needed.
-            
+
             dS.EnforceConstraints = false;
             this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.lOPTableAdapter.Fill(this.dS.LOP);
@@ -91,8 +94,19 @@ namespace QLDSV
             cmbLanThi.DataSource = new BindingSource(dict, null);
             cmbLanThi.DisplayMember = "Value";
             cmbLanThi.ValueMember = "Key";
+            txtNgay.Text = DateTime.Now.ToString("MM-dd-yyy");
         }
 
-       
+        private void btnReview_Click(object sender, EventArgs e)
+        {
+            ReportThiHetMon reportPD = new ReportThiHetMon(txtMaLop.Text, cmbLanThi.SelectedIndex+1 ,txtMaMon.Text);
+            reportPD.xrLabelLop.Text = "Lớp: " + tENLOPComboBox.SelectedValue.ToString();
+            reportPD.xrLabelMonHoc.Text = "Môn thi: " + tENMHComboBox.SelectedValue.ToString();
+            reportPD.xrLabelNgay.Text = "Ngày: " + txtNgay.Text;
+            reportPD.xrLabelInfoNgTao.Text = "Mã giảng viên : " + Program.username + " ||   Họ và tên : " + Program.mHoten + " ||   Nhóm : " + Program.mGroup;
+
+            ReportPrintTool print = new ReportPrintTool(reportPD);
+            print.ShowPreviewDialog();
+        }
     }
 }

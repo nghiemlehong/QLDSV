@@ -21,9 +21,10 @@ namespace QLDSV
 
         private void frmDSHocPhi_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dS1.LOP' table. You can move, or remove it, as needed.
-            this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.lOPTableAdapter.Fill(this.dS1.LOP);
+            // TODO: This line of code loads data into the 'qLDSVDataSet.v_SISO' table. You can move, or remove it, as needed.
+            this.v_SISOTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.v_SISOTableAdapter.Fill(this.qLDSVDataSet.v_SISO);
+           
             IDictionary<int, string> dict = new Dictionary<int, string>();
             dict.Add(1, "1");
             dict.Add(2, "2");
@@ -49,8 +50,8 @@ namespace QLDSV
 
         private void btnReview_Click(object sender, EventArgs e)
         {
-            ReportHocPhi reportHP = new ReportHocPhi(cmbMaLop.SelectedValue.ToString(), cmbNienKhoa.SelectedValue.ToString(), cmbHocKy.SelectedIndex + 1);
-            reportHP.xrLabelLop.Text = "lớp: " + tENLOPTextEdit.Text;
+            ReportHocPhi reportHP = new ReportHocPhi(cmbLop.SelectedValue.ToString(), cmbNienKhoa.SelectedValue.ToString(), cmbHocKy.SelectedIndex + 1);
+            reportHP.xrLabelLop.Text = "Mã lớp: " + cmbLop.SelectedValue.ToString();
             reportHP.xrLabelNienKhoa.Text = "Niên khoa: " + cmbNienKhoa.SelectedValue.ToString();
             reportHP.xrLabelHocki.Text = "Học kì: " + cmbHocKy.SelectedValue.ToString();
             reportHP.xrLabelInfoNgTao.Text = "Mã giảng viên : " + Program.username + " ||   Họ và tên : " + Program.mHoten + " ||   Nhóm : " + Program.mGroup;

@@ -151,6 +151,7 @@
             this.tENLOPComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lOPBindingSource, "TENLOP", true));
             this.tENLOPComboBox.DataSource = this.lOPBindingSource;
             this.tENLOPComboBox.DisplayMember = "TENLOP";
+            this.tENLOPComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tENLOPComboBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tENLOPComboBox.FormattingEnabled = true;
             this.tENLOPComboBox.Location = new System.Drawing.Point(154, 115);
