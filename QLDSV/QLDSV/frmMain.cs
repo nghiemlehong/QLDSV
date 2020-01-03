@@ -103,6 +103,11 @@ namespace QLDSV
 
         private void btnDangKy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            Form[] childArray = this.MdiChildren;
+            foreach (Form childForm in childArray)
+            {
+                childForm.Close();
+            }
             Form frm = this.CheckExists(typeof(frmDangKy));
             if (frm != null) frm.Activate();
             else
@@ -111,6 +116,7 @@ namespace QLDSV
                 f.MdiParent = this;
                 f.Show();
             }
+            
         }
 
         private void btnDanhSachSinhVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

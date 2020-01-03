@@ -134,13 +134,6 @@ namespace QLDSV
                     if (MALOP != null) // TODO : MALOP tồn tại - Cập nhập Mã Sinh Viên mới và thay đổi mã lớp cho sinh viên sắp chuyển lớp
                     {
 
-                        // TODO : Cấp mã mới
-                        //string major = this.txtMaLopChuyenDen.Text.ToString().Substring(6, 2);
-                        //string nienkhoa = MALOP.Substring(1, 2);
-                        //string numcode = "001";
-
-                      
-
                         // TODO : Cập nhập trạng thái học của sinh viên đó tại khoa ban đầu thành nghỉ học
                         strLenh = "Update SINHVIEN SET NGHIHOC=1 WHERE MASV='" + maSVChuyenLop + "'";
                         command = new SqlCommand(strLenh, connection);

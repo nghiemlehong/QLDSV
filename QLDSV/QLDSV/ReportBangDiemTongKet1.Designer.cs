@@ -232,6 +232,8 @@
             this.GroupHeader1.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
             this.GroupHeader1.HeightF = 128.4583F;
             this.GroupHeader1.Name = "GroupHeader1";
+            this.GroupHeader1.StylePriority.UseTextAlignment = false;
+            this.GroupHeader1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // xrPivotGrid1
             // 
@@ -268,7 +270,7 @@
             this.fieldHOTEN1.Caption = "HỌ VÀ TÊN";
             this.fieldHOTEN1.FieldName = "HOTEN";
             this.fieldHOTEN1.Name = "fieldHOTEN1";
-            this.fieldHOTEN1.Width = 234;
+            this.fieldHOTEN1.Width = 242;
             // 
             // fieldTENMH1
             // 
@@ -276,7 +278,7 @@
             this.fieldTENMH1.AreaIndex = 0;
             this.fieldTENMH1.FieldName = "TENMH";
             this.fieldTENMH1.Name = "fieldTENMH1";
-            this.fieldTENMH1.Width = 99;
+            this.fieldTENMH1.Width = 144;
             // 
             // fieldDIEM1
             // 

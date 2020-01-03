@@ -66,7 +66,7 @@ namespace QLDSV
             panelSearch.Dock = DockStyle.Top;
 
         }
-
+        
         private void BtnSearch_Click(object sender, EventArgs e)
         {
             try
@@ -91,6 +91,7 @@ namespace QLDSV
                             }
                             gvNhap.Visible = true;
                             panelSearch.Visible = false;
+                            btnSave.Enabled = true;
                             lbHoTen.Text = "Họ và tên : " + gvData.GetRowCellValue(foundIndex, "HO").ToString().Trim() + " " + gvData.GetRowCellValue(foundIndex, "TEN").ToString();
                             lbMaLop.Text = "Mã lớp : " + gvData.GetRowCellValue(foundIndex, "MALOP").ToString();
                         }
@@ -122,7 +123,7 @@ namespace QLDSV
             gvNhap.Visible = false;
             panelSearch.Visible = true;
             txtSearch.Focus();
-            btnSave.Enabled = false;
+            
             btnThem.Enabled = true;
             panelHocPhi.Enabled = true;
 
@@ -153,6 +154,7 @@ namespace QLDSV
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.hOCPHITableAdapter.Fill(this.DS1.HOCPHI);
                     }
                     break;
                 case DialogResult.No:
@@ -220,7 +222,14 @@ namespace QLDSV
             {
                 txtTienDaDong.Focus();
             }
-            hOCPHIBindingSource.EndEdit();
+            try
+            {
+                hOCPHIBindingSource.EndEdit();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             MessageBox.Show("Đã cập nhật dữ liệu học phí", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btnSave.Enabled = true;
             btnThem.Enabled = true;
@@ -240,14 +249,30 @@ namespace QLDSV
             }
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
+        private void btnThem_Click(object sender, EventArgs e)                   
         {
-            hOCPHIBindingSource.AddNew();
-            btnThem.Enabled = false;
-            panelHocPhi.Enabled = false;
-            checkAdd1 = true;
-            btnHuy.Visible = true;
-            cmbHocKy.SelectedValue = cmbNienKhoa.SelectedValue = "";
+           
+           
+            for(int i = 0; i<hOCPHIBindingSource.Count;i++)
+            {
+                int tiendadong = int.Parse(gvData1.GetRowCellValue(i, "SOTIENDADONG").ToString());
+                int hocphi = int.Parse(gvData1.GetRowCellValue(i, "HOCPHI").ToString());
+                if (tiendadong < hocphi)
+                {
+                    MessageBox.Show("Sinh viên chưa hoàn thành học phí kỳ trước", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+            }
+
+                hOCPHIBindingSource.AddNew();
+                btnThem.Enabled = false;
+                panelHocPhi.Enabled = false;
+                checkAdd1 = true;
+                btnHuy.Visible = true;
+            btnSave.Enabled = false;
+                cmbHocKy.SelectedValue = cmbNienKhoa.SelectedValue = "";
+            
+
         }
     }
 }

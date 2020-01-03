@@ -92,6 +92,7 @@
             this.bdsDiem = new System.Windows.Forms.BindingSource(this.components);
             this.dIEMTableAdapter = new QLDSV.DSTableAdapters.DIEMTableAdapter();
             this.lOPTableAdapter1 = new QLDSV.QLDSVDataSetTableAdapters.LOPTableAdapter();
+            this.btnTaiLai = new DevExpress.XtraBars.BarButtonItem();
             tENCNLabel = new System.Windows.Forms.Label();
             tENLOPLabel = new System.Windows.Forms.Label();
             mAKHLabel = new System.Windows.Forms.Label();
@@ -196,9 +197,10 @@
             this.btnGhi,
             this.btnPhucHoi,
             this.btnChuyenLop,
-            this.btnLuuSQL});
+            this.btnLuuSQL,
+            this.btnTaiLai});
             this.barManager2.MainMenu = this.barSinhVien;
-            this.barManager2.MaxItemId = 7;
+            this.barManager2.MaxItemId = 8;
             // 
             // barSinhVien
             // 
@@ -212,7 +214,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnXoa, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnSua, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLuuSQL, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPhucHoi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPhucHoi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnTaiLai, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.barSinhVien.OptionsBar.MultiLine = true;
             this.barSinhVien.OptionsBar.UseWholeRow = true;
             this.barSinhVien.Text = "Main menu";
@@ -535,40 +538,40 @@
             this.tsPhucHoi,
             this.tsChuyenLop});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 136);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(136, 114);
             // 
             // tsThem
             // 
             this.tsThem.Name = "tsThem";
-            this.tsThem.Size = new System.Drawing.Size(180, 22);
+            this.tsThem.Size = new System.Drawing.Size(135, 22);
             this.tsThem.Text = "Thêm";
             this.tsThem.Click += new System.EventHandler(this.tsThem_Click);
             // 
             // tsXoa
             // 
             this.tsXoa.Name = "tsXoa";
-            this.tsXoa.Size = new System.Drawing.Size(180, 22);
+            this.tsXoa.Size = new System.Drawing.Size(135, 22);
             this.tsXoa.Text = "Xóa";
             this.tsXoa.Click += new System.EventHandler(this.tsXoa_Click);
             // 
             // tsLuu
             // 
             this.tsLuu.Name = "tsLuu";
-            this.tsLuu.Size = new System.Drawing.Size(180, 22);
+            this.tsLuu.Size = new System.Drawing.Size(135, 22);
             this.tsLuu.Text = "Lưu";
             this.tsLuu.Click += new System.EventHandler(this.tsLuu_Click);
             // 
             // tsPhucHoi
             // 
             this.tsPhucHoi.Name = "tsPhucHoi";
-            this.tsPhucHoi.Size = new System.Drawing.Size(180, 22);
+            this.tsPhucHoi.Size = new System.Drawing.Size(135, 22);
             this.tsPhucHoi.Text = "Phục hồi";
             this.tsPhucHoi.Click += new System.EventHandler(this.tsPhucHoi_Click);
             // 
             // tsChuyenLop
             // 
             this.tsChuyenLop.Name = "tsChuyenLop";
-            this.tsChuyenLop.Size = new System.Drawing.Size(180, 22);
+            this.tsChuyenLop.Size = new System.Drawing.Size(135, 22);
             this.tsChuyenLop.Text = "Chuyển lớp";
             this.tsChuyenLop.Click += new System.EventHandler(this.tsChuyenLop_Click);
             // 
@@ -653,6 +656,15 @@
             // lOPTableAdapter1
             // 
             this.lOPTableAdapter1.ClearBeforeFill = true;
+            // 
+            // btnTaiLai
+            // 
+            this.btnTaiLai.Caption = "Tải lại ";
+            this.btnTaiLai.Id = 7;
+            this.btnTaiLai.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnTaiLai.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnTaiLai.Name = "btnTaiLai";
+            this.btnTaiLai.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTaiLai_ItemClick);
             // 
             // frmSinhVien
             // 
@@ -754,5 +766,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsLuu;
         private System.Windows.Forms.BindingSource lOPBindingSource;
         private QLDSVDataSetTableAdapters.LOPTableAdapter lOPTableAdapter1;
+        private DevExpress.XtraBars.BarButtonItem btnTaiLai;
     }
 }

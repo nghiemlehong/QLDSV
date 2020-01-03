@@ -58,7 +58,7 @@ namespace QLDSV
             else
             {
                 cmbBoPhan.Enabled = false;
-                btnLuuSQL.Enabled = btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnChuyenLop.Enabled = false;
+                btnLuuSQL.Enabled = btnThem.Enabled = btnXoa.Enabled = btnSua.Enabled = btnPhucHoi.Enabled = btnChuyenLop.Enabled = btnTaiLai.Enabled = false;
                 gcSinhVien.Enabled= false;
 
             }
@@ -719,6 +719,13 @@ namespace QLDSV
                 }
             }
           
+        }
+
+        private void btnTaiLai_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
+            this.lOPTableAdapter1.Fill(this.qLDSVDataSet.LOP);
         }
     }
 }

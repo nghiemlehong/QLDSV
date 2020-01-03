@@ -45,10 +45,10 @@
             this.lbHoTen = new System.Windows.Forms.Label();
             this.lbMaLop = new System.Windows.Forms.Label();
             this.gvNhap = new System.Windows.Forms.GroupBox();
+            this.btnThem = new System.Windows.Forms.Button();
             this.cmbNienKhoa = new System.Windows.Forms.ComboBox();
             this.hOCPHIBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmbHocKy = new System.Windows.Forms.ComboBox();
-            this.btnQuayLai = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtTienDaDong = new System.Windows.Forms.TextBox();
             this.txtHocPhi = new System.Windows.Forms.TextBox();
@@ -57,6 +57,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnHuy = new System.Windows.Forms.Button();
+            this.btnQuayLai = new System.Windows.Forms.Button();
             this.panelSearch = new System.Windows.Forms.Panel();
             this.panelHocPhi = new System.Windows.Forms.Panel();
             this.hOCPHIGridControl = new DevExpress.XtraGrid.GridControl();
@@ -66,8 +68,6 @@
             this.colHOCPHI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOTIENDADONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.hOCPHITableAdapter = new QLDSV.DS1TableAdapters.HOCPHITableAdapter();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.btnHuy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DS1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sINHVIENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sINHVIENGridControl)).BeginInit();
@@ -99,7 +99,6 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.GIANGVIENTableAdapter = null;
             this.tableAdapterManager.HOCPHITableAdapter = null;
-            
             this.tableAdapterManager.SINHVIENTableAdapter = this.sINHVIENTableAdapter;
             this.tableAdapterManager.UpdateOrder = QLDSV.DS1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
@@ -258,6 +257,17 @@
             this.gvNhap.Text = "Thông tin nộp học phí";
             this.gvNhap.Visible = false;
             // 
+            // btnThem
+            // 
+            this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnThem.Location = new System.Drawing.Point(291, 177);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(110, 29);
+            this.btnThem.TabIndex = 14;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
             // cmbNienKhoa
             // 
             this.cmbNienKhoa.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -284,17 +294,6 @@
             this.cmbHocKy.Name = "cmbHocKy";
             this.cmbHocKy.Size = new System.Drawing.Size(113, 24);
             this.cmbHocKy.TabIndex = 12;
-            // 
-            // btnQuayLai
-            // 
-            this.btnQuayLai.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnQuayLai.Location = new System.Drawing.Point(533, 177);
-            this.btnQuayLai.Name = "btnQuayLai";
-            this.btnQuayLai.Size = new System.Drawing.Size(110, 29);
-            this.btnQuayLai.TabIndex = 11;
-            this.btnQuayLai.Text = "Quay lại";
-            this.btnQuayLai.UseVisualStyleBackColor = true;
-            this.btnQuayLai.Click += new System.EventHandler(this.BtnHuy_Click);
             // 
             // btnSave
             // 
@@ -389,12 +388,35 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Niên khóa :";
             // 
+            // btnHuy
+            // 
+            this.btnHuy.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnHuy.Location = new System.Drawing.Point(533, 177);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(112, 29);
+            this.btnHuy.TabIndex = 15;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Visible = false;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click_1);
+            // 
+            // btnQuayLai
+            // 
+            this.btnQuayLai.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnQuayLai.Location = new System.Drawing.Point(533, 177);
+            this.btnQuayLai.Name = "btnQuayLai";
+            this.btnQuayLai.Size = new System.Drawing.Size(110, 29);
+            this.btnQuayLai.TabIndex = 11;
+            this.btnQuayLai.Text = "Quay lại";
+            this.btnQuayLai.UseVisualStyleBackColor = true;
+            this.btnQuayLai.Click += new System.EventHandler(this.BtnHuy_Click);
+            // 
             // panelSearch
             // 
             this.panelSearch.Controls.Add(this.label1);
             this.panelSearch.Controls.Add(this.btnSearch);
-            this.panelSearch.Controls.Add(this.sINHVIENGridControl);
             this.panelSearch.Controls.Add(this.txtSearch);
+            this.panelSearch.Controls.Add(this.sINHVIENGridControl);
             this.panelSearch.Location = new System.Drawing.Point(0, -2);
             this.panelSearch.Name = "panelSearch";
             this.panelSearch.Size = new System.Drawing.Size(1203, 359);
@@ -499,29 +521,6 @@
             // hOCPHITableAdapter
             // 
             this.hOCPHITableAdapter.ClearBeforeFill = true;
-            // 
-            // btnThem
-            // 
-            this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnThem.Location = new System.Drawing.Point(291, 177);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(110, 29);
-            this.btnThem.TabIndex = 14;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // btnHuy
-            // 
-            this.btnHuy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnHuy.Location = new System.Drawing.Point(533, 177);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(112, 29);
-            this.btnHuy.TabIndex = 15;
-            this.btnHuy.Text = "Hủy";
-            this.btnHuy.UseVisualStyleBackColor = true;
-            this.btnHuy.Visible = false;
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click_1);
             // 
             // frmHocPhi
             // 

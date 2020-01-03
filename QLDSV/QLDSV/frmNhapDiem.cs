@@ -203,7 +203,7 @@ namespace QLDSV
             cmbBoPhan.Enabled = false;
             gbNhapDiem.Enabled = false;
             gbGhiDiem.Enabled = true;
-
+            Console.WriteLine(gvNhapDiem.RowCount);
         }
 
 
@@ -219,11 +219,12 @@ namespace QLDSV
                 cmbBoPhan.Enabled = true;
             }
             else cmbBoPhan.Enabled = false;
+            nhapDiem = false;
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            for(int i =0; i<bdsSinhVien.Count;i++)
+            for(int i =0; i<gvNhapDiem.RowCount;i++)
             {
                 try
                 {
@@ -255,7 +256,7 @@ namespace QLDSV
             }
             ////////////////
             string strLenh = "";
-            for (int i = 0; i < bdsSinhVien.Count; i++)
+            for (int i = 0; i < gvNhapDiem.RowCount; i++)
             {
                 if(nhapDiem == true)
                 strLenh = "INSERT INTO dbo.DIEM (MASV,MAMH,LAN,DIEM) VALUES (@MASV,@MAMH,@LAN,@DIEM)";

@@ -56,7 +56,7 @@
             // mALOPLabel
             // 
             mALOPLabel.AutoSize = true;
-            mALOPLabel.Location = new System.Drawing.Point(84, 90);
+            mALOPLabel.Location = new System.Drawing.Point(76, 90);
             mALOPLabel.Name = "mALOPLabel";
             mALOPLabel.Size = new System.Drawing.Size(83, 13);
             mALOPLabel.TabIndex = 3;
@@ -65,7 +65,7 @@
             // tENLOPLabel
             // 
             tENLOPLabel.AutoSize = true;
-            tENLOPLabel.Location = new System.Drawing.Point(80, 54);
+            tENLOPLabel.Location = new System.Drawing.Point(76, 54);
             tENLOPLabel.Name = "tENLOPLabel";
             tENLOPLabel.Size = new System.Drawing.Size(87, 13);
             tENLOPLabel.TabIndex = 4;
@@ -112,7 +112,6 @@
             // 
             // cmbTenLop
             // 
-            this.cmbTenLop.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsLop, "TENLOP", true));
             this.cmbTenLop.DataSource = this.bdsLop;
             this.cmbTenLop.DisplayMember = "TENLOP";
             this.cmbTenLop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -125,7 +124,7 @@
             // 
             // btnChuyenLop
             // 
-            this.btnChuyenLop.Location = new System.Drawing.Point(193, 213);
+            this.btnChuyenLop.Location = new System.Drawing.Point(192, 171);
             this.btnChuyenLop.Name = "btnChuyenLop";
             this.btnChuyenLop.Size = new System.Drawing.Size(92, 39);
             this.btnChuyenLop.TabIndex = 6;
@@ -134,7 +133,7 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(316, 213);
+            this.btnHuy.Location = new System.Drawing.Point(315, 171);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(92, 39);
             this.btnHuy.TabIndex = 7;
@@ -169,7 +168,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 301);
+            this.ClientSize = new System.Drawing.Size(577, 251);
             this.Controls.Add(this.txtMaSVMoi);
             this.Controls.Add(labelMSVM);
             this.Controls.Add(this.btnHuy);
